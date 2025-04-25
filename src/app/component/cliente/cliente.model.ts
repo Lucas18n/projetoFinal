@@ -1,3 +1,5 @@
+/*Classe especifica que os atributos vem do back end*/
+
 export interface Cliente
 {
     id?: number

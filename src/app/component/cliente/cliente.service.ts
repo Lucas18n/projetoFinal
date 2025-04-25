@@ -9,7 +9,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ClienteService 
 {
+  //URL do backend
   baseUrl = "http://localhost:3001/cliente"
+
+  //Construtor do serviço, aonde injetamos o MatSnackBar e HttpClient
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 
   showMessage(msg: string): void
@@ -21,24 +24,33 @@ export class ClienteService
         verticalPosition: "top"
       })
   }
+
+  //Metodo para criar cliente
   create(cliente: Cliente): Observable<Cliente>
   {
     return this.http.post<Cliente>(this.baseUrl, cliente)
   }
+
+  //Metodo para carregar os dados do cliente
   read(): Observable<Cliente[]>
   {
     return this.http.get<Cliente[]>(this.baseUrl)
   }
+  //Metodo para carregar os dados do cliente por ID
   readById(id: string): Observable<Cliente>
   {
     const url = `${this.baseUrl}/${id}`
     return this.http.get<Cliente>(url)
   }
+
+  //Metodo para atualizar os dados do cliente
   update(cliente: Cliente): Observable<Cliente>
   {
     const url = `${this.baseUrl}/${cliente.id}`
     return this.http.put<Cliente>(url, cliente)
   }
+
+  //Metodo para deletar os dados do cliente por ID
   delete(id: number): Observable<Cliente>
   {
     const url = `${this.baseUrl}/${id}`

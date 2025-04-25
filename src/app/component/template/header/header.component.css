@@ -3,7 +3,7 @@
     align-items: center;
     background-color: rgb(0, 0, 0);
     padding-left: 2px;
-    background-image: url('https://super.abril.com.br/wp-content/uploads/2016/09/super_imgmelhores-games_25.jpg?crop=1&resize=1212,909');
+    
 }
 
 .header a {
@@ -13,12 +13,12 @@
 }
 
 .header .logo {
-    max-height: 75px;
+    max-height: 35px;
 }
 
 .header .title-group{
     padding-left: 5px;
-    color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
     font-family: 'Rockwell', Arial, sans-serif;
     font-size: 35px;
     background-color: rgb(20, 20, 20);
