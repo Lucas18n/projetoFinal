@@ -37,6 +37,8 @@ import { ClienteCreateComponent } from './component/cliente/cliente-create/clien
 import { FornecedorCreateComponent } from './component/fornecedor/fornecedor-create/fornecedor-create.component';
 import { MatTableModule } from '@angular/material/table';
 import { ProductUpdateComponent } from './component/product/product-update/product-update.component';
+import { ProductDeleteComponent } from './component/product/product-delete/product-delete.component';
+import { ClienteUpdateComponent } from './component/cliente/cliente-update/cliente-update.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { ProductUpdateComponent } from './component/product/product-update/produ
     EnderecoReadComponent,
     ClienteCreateComponent,
     FornecedorCreateComponent,
-    ProductUpdateComponent
+    ProductUpdateComponent,
+    ProductDeleteComponent,
+    ClienteUpdateComponent
   ],
   imports: [
     BrowserModule,
