@@ -6,6 +6,7 @@
     display: flex;
     /*coloca no final da linha. sendo no lado direiro parte inferior*/
     justify-content: flex-end;
+    background-color: #fcbf6b;
     
 }
 
@@ -14,5 +15,5 @@
     font-weight: 300;
     color: rgb(228, 228, 228);
     font-family: 'Rockwell', Arial, sans-serif;
-    background-color: rgb(20, 20, 20);
+    background-color: #fcbf6b;
 }

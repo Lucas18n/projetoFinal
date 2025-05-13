@@ -13,7 +13,8 @@ export class FormaPagamentoReadComponent {
   formaPagamentos!: FormaPagamento[]
 
   // Define as colunas visíveis da tabela (em ordem)
-  displayedColumns = ['fpgId', 'fpgDescricao', 'fpgStatus', 'action']
+  displayedColumns: string[] = ['fpgId', 'fpgDescricao', 'ativo', 'numeroMaximoParcelas', 'action'];
+
 
   // Injeta o ProductService pra poder acessar os métodos dele
   constructor(private formaPagamentoService: FormaPagamentoService) { }

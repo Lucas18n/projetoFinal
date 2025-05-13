@@ -6,11 +6,11 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/template/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {NavComponent} from './component/template/nav/nav.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatListModule } from '@angular/material/list';
-import {FooterComponent } from './component/template/footer/footer.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { NavComponent } from './component/template/nav/nav.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { FooterComponent } from './component/template/footer/footer.component';
 import { HomeComponent } from './views/home/home.component';
 
 import { MatCardModule } from '@angular/material/card';
@@ -28,7 +28,6 @@ import { ContatoReadComponent } from './component/contato/contato-read/contato-r
 import { EnderecoCrudComponent } from './views/endereco-crud/endereco-crud.component';
 import { EnderecoReadComponent } from './component/endereco/endereco-read/endereco-read.component';
 
-
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
@@ -44,6 +43,11 @@ import { FormaPagamentoReadComponent } from './component/formaPagamento/forma-pa
 import { FormaPagamentoCreateComponent } from './component/formaPagamento/forma-pagamento-create/forma-pagamento-create.component';
 import { FormaPagamentoUpdateComponent } from './component/formaPagamento/forma-pagamento-update/forma-pagamento-update.component';
 import { FormaPagamentoDeleteComponent } from './component/formaPagamento/forma-pagamento-delete/forma-pagamento-delete.component';
+
+
+import { MatSelectModule } from '@angular/material/select'; 
+import { MatDatepickerModule } from '@angular/material/datepicker'; 
+import { MatNativeDateModule } from '@angular/material/core'; 
 
 @NgModule({
   declarations: [
@@ -87,7 +91,10 @@ import { FormaPagamentoDeleteComponent } from './component/formaPagamento/forma-
     MatInputModule,
     FormsModule,
     HttpClientModule,
-    MatTableModule 
+    MatTableModule,
+    MatSelectModule,              
+    MatDatepickerModule,          
+    MatNativeDateModule,           
   ],
   providers: [],
   bootstrap: [AppComponent]

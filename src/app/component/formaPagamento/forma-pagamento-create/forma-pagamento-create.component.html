@@ -1,22 +1,41 @@
 <mat-card>
-    <mat-card-title>Nova Forma de Pagamento</mat-card-title>
-  
-    <form>
-      <mat-form-field>
-        <input matInput placeholder="Descrição" [(ngModel)]="formaPagamento.fpgDescricao" name="fpgDescricao">
-      </mat-form-field>
-  
-      <mat-form-field>
-        <input matInput placeholder="Status" [(ngModel)]="formaPagamento.fpgStatus" name="fpgStatus">
-      </mat-form-field>
-    </form>
-  
-    <button mat-raised-button (click)="createFormaPagamento()" color="primary">
-      Salvar
-    </button>
-  
-    <button mat-raised-button (click)="cancel()">
-      Cancelar
-    </button>
-  </mat-card>
-  
+  <mat-card-title>Nova Forma de Pagamento</mat-card-title>
+
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Descrição" [(ngModel)]="formaPagamento.fpgDescricao" name="fpgDescricao">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Forma De Pagamento ativa?</mat-label>
+      <mat-select [(ngModel)]="formaPagamento.ativo" name="ativo">
+        <mat-option [value]="true">Sim</mat-option>
+        <mat-option [value]="false">Não</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Permite Parcelamento</mat-label>
+      <mat-select [(ngModel)]="formaPagamento.permiteParcelamento" name="permiteParcelamento">
+        <mat-option [value]="true">Sim</mat-option>
+        <mat-option [value]="false">Não</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="number" placeholder="Número Máximo de Parcelas" [(ngModel)]="formaPagamento.numeroMaximoParcelas" name="numeroMaximoParcelas">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="number" step="0.01" placeholder="Taxa Adicional (%)" [(ngModel)]="formaPagamento.taxaAdicional" name="taxaAdicional">
+    </mat-form-field>
+  </form>
+
+  <button mat-raised-button (click)="createFormaPagamento()" color="primary">
+    Salvar
+  </button>
+
+  <button mat-raised-button (click)="cancel()">
+    Cancelar
+  </button>
+</mat-card>

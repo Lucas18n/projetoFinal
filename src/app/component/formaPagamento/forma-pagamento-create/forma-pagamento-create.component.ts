@@ -9,27 +9,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./forma-pagamento-create.component.css']
 })
 export class FormaPagamentoCreateComponent {
-  
+
   formaPagamento: FormaPagamento = {
     fpgDescricao: '',
-    fpgStatus: ''
-  }
+    fpgStatus: '',
+    ativo: false,
+    permiteParcelamento: false,
+    numeroMaximoParcelas: 1,
+    taxaAdicional: 0.00
+  };
 
-  constructor(private formaPagamentoService: FormaPagamentoService,
-  private router: Router) { }
+  constructor(
+    private formaPagamentoService: FormaPagamentoService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   createFormaPagamento(): void {
     this.formaPagamentoService.create(this.formaPagamento).subscribe(() => {
-      this.formaPagamentoService.showMessage('Forma de pagamento Criada!!!')
-      this.router.navigate(['/formaPagamento'])
-    })
+      this.formaPagamentoService.showMessage('Forma de pagamento Criada!!!');
+      this.router.navigate(['/formaPagamento']);
+    });
   }
 
   cancel(): void {
-    this.router.navigate(['/formaPagamento'])
+    this.router.navigate(['/formaPagamento']);
   }
 }
