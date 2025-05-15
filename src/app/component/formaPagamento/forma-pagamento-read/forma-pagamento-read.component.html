@@ -19,6 +19,14 @@
       <td mat-cell *matCellDef="let row">{{ row.ativo }}</td>
     </ng-container>
 
+     <!-- Coluna Ativo -->
+     <ng-container matColumnDef="permiteParcelamento">
+      <th mat-header-cell *matHeaderCellDef>Permite Parcelamento</th>
+      <td mat-cell *matCellDef="let row">{{ row.ativo }}</td>
+    </ng-container>
+
+
+
     <!-- Coluna Parcelas -->
     <ng-container matColumnDef="numeroMaximoParcelas">
       <th mat-header-cell *matHeaderCellDef>Parcelas</th>

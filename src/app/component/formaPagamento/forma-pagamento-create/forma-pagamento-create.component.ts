@@ -13,8 +13,8 @@ export class FormaPagamentoCreateComponent {
   formaPagamento: FormaPagamento = {
     fpgDescricao: '',
     fpgStatus: '',
-    ativo: false,
-    permiteParcelamento: false,
+    ativo: '',
+    permiteParcelamento: '',
     numeroMaximoParcelas: 1,
     taxaAdicional: 0.00
   };
