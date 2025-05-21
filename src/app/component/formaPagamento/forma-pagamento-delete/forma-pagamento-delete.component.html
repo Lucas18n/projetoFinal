@@ -7,11 +7,7 @@
       </mat-form-field>
   
       <mat-form-field>
-        <input matInput placeholder="Status" [value]="formaPagamento.fpgStatus" name="fpgStatus" disabled>
-      </mat-form-field>
-  
-      <mat-form-field>
-        <input matInput placeholder="Ativo" [value]="formaPagamento.ativo" name="ativo" disabled>
+        <input matInput placeholder="Ativo" [value]="formaPagamento.ativo ? 'Sim' : 'Não'" name="ativo" disabled>
       </mat-form-field>
   
       <mat-form-field>

@@ -10,5 +10,4 @@ export interface Product {
     unidadeMedida: string;               
     ativo: boolean;                      
     dataCadastro: string;                
-    dataAtualizacao: string;
 }

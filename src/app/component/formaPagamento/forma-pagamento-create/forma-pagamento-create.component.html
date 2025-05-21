@@ -9,18 +9,19 @@
     <mat-form-field>
       <mat-label>Forma De Pagamento ativa?</mat-label>
       <mat-select [(ngModel)]="formaPagamento.ativo" name="ativo">
-        <mat-option value="Sim">Sim</mat-option>
-        <mat-option value="Não">Não</mat-option>
+        <mat-option [value]="true">Sim</mat-option>
+        <mat-option [value]="false">Não</mat-option>
       </mat-select>
     </mat-form-field>
-
+    
     <mat-form-field>
       <mat-label>Permite Parcelamento</mat-label>
       <mat-select [(ngModel)]="formaPagamento.permiteParcelamento" name="permiteParcelamento">
-        <mat-option value="Sim">Sim</mat-option>
-        <mat-option value="Não">Não</mat-option>
+        <mat-option [value]="true">Sim</mat-option>
+        <mat-option [value]="false">Não</mat-option>
       </mat-select>
     </mat-form-field>
+    
 
     <mat-form-field>
       <input matInput type="number" placeholder="Número Máximo de Parcelas" [(ngModel)]="formaPagamento.numeroMaximoParcelas" name="numeroMaximoParcelas">

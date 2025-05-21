@@ -20,8 +20,8 @@ export class ProductCreateComponent implements OnInit {
     marca: '',
     unidadeMedida: '',
     ativo: true,
-    dataCadastro: new Date().toISOString(),      // ou use new Date() se for do tipo Date
-    dataAtualizacao: new Date().toISOString()
+    dataCadastro: new Date().toISOString()    
+    
   }
 
   constructor(
@@ -32,7 +32,7 @@ export class ProductCreateComponent implements OnInit {
   ngOnInit(): void { }
 
   createProduct(): void {
-    this.product.dataAtualizacao = new Date().toISOString(); // atualiza na hora de criar
+    this.product.dataCadastro = new Date().toISOString(); // atualiza na hora de criar
     this.productService.create(this.product).subscribe(() => {
       this.productService.showMessage('Produto Criado!!!');
       this.router.navigate(['/products']);

@@ -1,6 +1,7 @@
 <mat-card>
     <mat-card-title>Excluir Produto</mat-card-title>
     <form>
+        <div class="form-grid">
         <mat-form-field>
             <input matInput placeholder="Nome" [value]="product.proNome" name="proNome" disabled>
         </mat-form-field>
@@ -10,6 +11,35 @@
         <mat-form-field>
             <input matInput placeholder="Preço de venda (R$)" [value]="product.proPrecoVenda" name="proPrecoVenda" disabled>
         </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Quantidade em Estoque" [value]="product.quantidadeEstoque" name="quantidadeEstoque" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Categoria" [value]="product.categoria" name="categoria" disabled>
+          </mat-form-field>
+      
+          <mat-form-field>
+            <input matInput placeholder="Código de Barras" [value]="product.codigoBarras" name="codigoBarras" disabled>
+          </mat-form-field>
+      
+          <mat-form-field>
+            <input matInput placeholder="Marca" [value]="product.marca" name="marca" disabled>
+          </mat-form-field>
+      
+          <mat-form-field>
+            <input matInput placeholder="Unidade de Medida" [value]="product.unidadeMedida" name="unidadeMedida" disabled>
+          </mat-form-field>
+      
+          <mat-form-field>
+            <input matInput placeholder="Ativo?" [value]="product.ativo" name="ativo" disabled>
+          </mat-form-field>
+      
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker1" placeholder="Data de Cadastro" [value]="product.dataCadastro" name="dataCadastro" disabled>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+        </div>
     </form>
 
     <button mat-raised-button (click)="deleteProduct()" color="warn">
