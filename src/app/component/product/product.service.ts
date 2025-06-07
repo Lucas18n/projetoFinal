@@ -4,6 +4,11 @@ import { Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
 
+export interface CategoriaProdutoDTO {
+  categoria: string;
+  quantidade: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -44,5 +49,10 @@ export class ProductService
   {
     const url = `${this.baseUrl}/${proId}`
     return this.http.delete<Product>(url)
+  }
+
+  // Método para buscar quantidade por categoria
+  getQuantidadePorCategoria(): Observable<CategoriaProdutoDTO[]> {
+    return this.http.get<CategoriaProdutoDTO[]>(`${this.baseUrl}/quantidade-por-categoria`);
   }
 }

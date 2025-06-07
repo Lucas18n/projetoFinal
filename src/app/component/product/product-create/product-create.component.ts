@@ -15,24 +15,26 @@ export class ProductCreateComponent implements OnInit {
     proPrecoCusto: 0,
     proPrecoVenda: 0,
     quantidadeEstoque: 0,
-    categoria: '',
+    categoria: '',  // será preenchido com uma das opções fixas abaixo
     codigoBarras: '',
     marca: '',
     unidadeMedida: '',
     ativo: true,
     dataCadastro: new Date().toISOString()    
-    
   }
+
+  // Categorias fixas para seleção
+  categorias: string[] = ['Frio', 'Salgado', 'Doce', 'Bebida'];
 
   constructor(
     private productService: ProductService,
     private router: Router
-  ) { }
+  ) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   createProduct(): void {
-    this.product.dataCadastro = new Date().toISOString(); // atualiza na hora de criar
+    this.product.dataCadastro = new Date().toISOString();
     this.productService.create(this.product).subscribe(() => {
       this.productService.showMessage('Produto Criado!!!');
       this.router.navigate(['/products']);

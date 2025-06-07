@@ -1,8 +1,14 @@
 <mat-card class="home mat-elevation-z3">
     <span>
-    <mat-card-title class="title"> Sistema De Gestão Interno</mat-card-title>
-    <mat-card-subtitle class="subtitle">
-        Da Padoka
-    </mat-card-subtitle>
+      <mat-card-title class="title">Sistema De Gestão Interno</mat-card-title>
+      <mat-card-subtitle class="subtitle">Da Padoka</mat-card-subtitle>
     </span>
-</mat-card>
+  
+    <div style="display: block; margin-top: 20px; width: 400px;">
+      <canvas baseChart
+              [data]="pieChartData"
+              [type]="pieChartType">
+      </canvas>
+    </div>
+  </mat-card>
+  

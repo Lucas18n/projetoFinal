@@ -20,8 +20,14 @@
       </mat-form-field>
   
       <mat-form-field>
-        <input matInput placeholder="Categoria" [(ngModel)]="product.categoria" name="categoria">
-      </mat-form-field>
+  <mat-label>Categoria</mat-label>
+  <mat-select [(ngModel)]="product.categoria" name="categoria">
+    <mat-option *ngFor="let cat of categorias" [value]="cat">
+      {{ cat }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
   
       <mat-form-field>
         <input matInput placeholder="Código de Barras" [(ngModel)]="product.codigoBarras" name="codigoBarras">

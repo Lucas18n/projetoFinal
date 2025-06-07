@@ -44,10 +44,12 @@ import { FormaPagamentoCreateComponent } from './component/formaPagamento/forma-
 import { FormaPagamentoUpdateComponent } from './component/formaPagamento/forma-pagamento-update/forma-pagamento-update.component';
 import { FormaPagamentoDeleteComponent } from './component/formaPagamento/forma-pagamento-delete/forma-pagamento-delete.component';
 
-
 import { MatSelectModule } from '@angular/material/select'; 
 import { MatDatepickerModule } from '@angular/material/datepicker'; 
 import { MatNativeDateModule } from '@angular/material/core'; 
+
+// Importação do módulo de gráficos
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -94,7 +96,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatTableModule,
     MatSelectModule,              
     MatDatepickerModule,          
-    MatNativeDateModule,           
+    MatNativeDateModule,
+    NgChartsModule // <- Aqui adicionado
   ],
   providers: [],
   bootstrap: [AppComponent]
