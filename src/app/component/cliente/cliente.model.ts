@@ -2,10 +2,10 @@
 
 export interface Cliente
 {
-    id?: number
-    nome: string
-    cpfCnpj: string
+    cliId?: number
+    cliNome: string
+    cliCpf: string
     dataNascimento: string
-    formaPagamento: string
-    status: string
+    cliformaPagamento: string
+    cliAtivo: boolean
 }

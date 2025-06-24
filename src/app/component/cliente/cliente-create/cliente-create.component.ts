@@ -11,27 +11,37 @@ import { Cliente } from '../cliente.model';
 
 export class ClienteCreateComponent implements OnInit{
 cliente: Cliente = {
-  nome: '',
-  cpfCnpj: '',
-  dataNascimento: '',
-  formaPagamento: '',
-  status: ''
+  cliNome: '',
+  cliCpf: '',
+  dataNascimento: new Date().toISOString() ,
+  cliformaPagamento: '',
+  cliAtivo: true
 }
+
+ // Categorias fixas para seleção
+ formaPagamento: string[] = ['Débito', 'Crédito', 'Boleto Bancário'];
 constructor(private clienteService: ClienteService,
   private router: Router) { }
 
 ngOnInit(): void {
     
 }
-createCliente(): void
-{
+createCliente(): void {
+  const data = new Date(this.cliente.dataNascimento);
+  this.cliente.dataNascimento = data.toISOString().slice(0, 19); // "YYYY-MM-DDTHH:mm:ss"
+
   this.clienteService.create(this.cliente).subscribe(() => {
-    this.clienteService.showMessage('Cliente Criado!!!')
-    this.router.navigate(['/cliente'])
-  })
+    this.clienteService.showMessage('Cliente Criado!!!');
+    this.router.navigate(['/clientes']);
+  }, error => {
+    console.error('Erro ao criar cliente:', error);
+    console.log('Payload enviado:', this.cliente);
+
+  });
 }
+
 cancel(): void
 {
-  this.router.navigate(['/cliente'])
+  this.router.navigate(['/clientes'])
 }
 }

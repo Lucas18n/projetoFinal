@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class ClienteService 
 {
   //URL do backend
-  baseUrl = "http://localhost:3001/cliente"
+  baseUrl = "http://localhost:8080/clientes"
 
   //Construtor do serviço, aonde injetamos o MatSnackBar e HttpClient
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
@@ -46,7 +46,7 @@ export class ClienteService
   //Metodo para atualizar os dados do cliente
   update(cliente: Cliente): Observable<Cliente>
   {
-    const url = `${this.baseUrl}/${cliente.id}`
+    const url = `${this.baseUrl}/${cliente.cliId}`
     return this.http.put<Cliente>(url, cliente)
   }
 
