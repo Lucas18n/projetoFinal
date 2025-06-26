@@ -1,58 +1,191 @@
 <mat-card>
-    <!-- Componente de cartão do Angular Material para agrupar visualmente o conteúdo -->
+  <mat-card-title>Novo Cliente</mat-card-title>
 
-    <mat-card-title>Novo Cliente</mat-card-title>
-    
+  <form #form="ngForm" (ngSubmit)="createCliente(form)">
+    <mat-card-title>Cliente</mat-card-title>
+    <div class="form-grid">
 
-    <form>
-        <div class="form-grid">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Nome"
+          [(ngModel)]="cliente.cliNome"
+          name="cliNome"
+          required
+          #cliNome="ngModel"
+        />
+        <mat-error *ngIf="cliNome.invalid && cliNome.touched">
+          Nome é obrigatório
+        </mat-error>
+      </mat-form-field>
 
-        <mat-form-field>
-            <input matInput placeholder="Nome" [(ngModel)]="cliente.cliNome" name="cliNome">
-            <!-- Campo de entrada para o nome do cliente. 
-                 Usa two-way data binding com ngModel, vinculando o valor ao atributo "nome" do objeto "cliente".
-                 O atributo name é necessário para o ngModel funcionar corretamente dentro de formulários. -->
-        </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="CPF / CNPJ"
+          [(ngModel)]="cliente.cliCpf"
+          name="cliCpf"
+          required
+          #cliCpf="ngModel"
+        />
+        <mat-error *ngIf="cliCpf.invalid && cliCpf.touched">
+          CPF / CNPJ é obrigatório
+        </mat-error>
+      </mat-form-field>
 
-        <mat-form-field>
-            <input matInput placeholder="CPF / CNPJ" [(ngModel)]="cliente.cliCpf" name="cliCpf">
-            <!-- Campo de entrada para CPF ou CNPJ do cliente, vinculado ao atributo "cpfCnpj". -->
-        </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          [matDatepicker]="picker1"
+          placeholder="Data de Nascimento"
+          [(ngModel)]="cliente.dataNascimento"
+          name="dataNascimento"
+          required
+          #dataNascimento="ngModel"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-error *ngIf="dataNascimento.invalid && dataNascimento.touched">
+          Data de Nascimento é obrigatória
+        </mat-error>
+      </mat-form-field>
 
-        <mat-form-field>
-            <input matInput [matDatepicker]="picker1" placeholder="Data de Nascimento" [(ngModel)]="cliente.dataNascimento" name="dataNascimento">
-            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-            <mat-datepicker #picker1></mat-datepicker>
-          </mat-form-field>
+      <mat-form-field>
+        <mat-label>Estado Civil</mat-label>
+        <mat-select [(ngModel)]="cliente.cliEstCivil" name="cliEstCivil" required #cliEstCivilModel="ngModel">
+          <mat-option *ngFor="let cat of cliEstCivil" [value]="cat">
+            {{ cat }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="cliEstCivilModel.invalid && cliEstCivilModel.touched">
+          Estado Civil é obrigatório
+        </mat-error>
+        
+      </mat-form-field>
 
-       <mat-form-field>
-  <mat-label>Forma De Pagamento</mat-label>
-  <mat-select [(ngModel)]="cliente.cliformaPagamento" name="cliformaPagamento">
-    <mat-option *ngFor="let cat of formaPagamento" [value]="cat">
-      {{ cat }}
-    </mat-option>
-  </mat-select>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Profissão"
+          [(ngModel)]="cliente.cliProfissao"
+          name="cliProfissao"
+          required
+          #cliProfissao="ngModel"
+        />
+        <mat-error *ngIf="cliProfissao.invalid && cliProfissao.touched">
+          Profissão é obrigatória
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Cliente Ativo?</mat-label>
+        <mat-select
+          [(ngModel)]="cliente.cliAtivo"
+          name="cliAtivo"
+          required
+          #cliAtivo="ngModel"
+        >
+          <mat-option [value]="true">Sim</mat-option>
+          <mat-option [value]="false">Não</mat-option>
+        </mat-select>
+        <mat-error *ngIf="cliAtivo.invalid && cliAtivo.touched">
+          Campo obrigatório
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-card-title>Contato</mat-card-title>
+    <div class="form-grid">
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          placeholder="Celular"
+          [(ngModel)]="cliente.contato.conCelular"
+          name="conCelular"
+          required
+          #conCelular="ngModel"
+        />
+        <mat-error *ngIf="conCelular.invalid && conCelular.touched">
+          Celular é obrigatório
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <input matInput placeholder="Telefone Comercial" [(ngModel)]="cliente.contato.conTelefoneComercial" name="conTelefoneComercial" >
+      </mat-form-field>
+
+      <!-- Email - NÃO obrigatório -->
+<mat-form-field appearance="fill">
+  <input matInput placeholder="E-mail" [(ngModel)]="cliente.contato.conEmail" name="conEmail" email>
+</mat-form-field>
+    </div>
+
+    <mat-card-title>Endereço</mat-card-title>
+    <div class="form-grid">
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          placeholder="Rua"
+          [(ngModel)]="cliente.endereco.endRua"
+          name="endRua"
+          required
+          #endRua="ngModel"
+        />
+        <mat-error *ngIf="endRua.invalid && endRua.touched">
+          Rua é obrigatória
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          placeholder="Número"
+          [(ngModel)]="cliente.endereco.endNumero"
+          name="endNumero"
+          required
+          #endNumero="ngModel"
+        />
+        <mat-error *ngIf="endNumero.invalid && endNumero.touched">
+          Número é obrigatório
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Cidade - NÃO obrigatório -->
+<mat-form-field appearance="fill">
+  <input matInput placeholder="Cidade" [(ngModel)]="cliente.endereco.endCidade" name="endCidade">
 </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>Cliente Ativo?</mat-label>
-            <mat-select [(ngModel)]="cliente.cliAtivo" name="cliAtivo">
-              <mat-option [value]="true">Sim</mat-option>
-              <mat-option [value]="false">Não</mat-option>
-            </mat-select>
-          </mat-form-field>
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          placeholder="CEP"
+          [(ngModel)]="cliente.endereco.endCep"
+          name="endCep"
+          required
+          #endCep="ngModel"
+        />
+        <mat-error *ngIf="endCep.invalid && endCep.touched">
+          CEP é obrigatório
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Estado - NÃO obrigatório -->
+<mat-form-field appearance="fill">
+  <input matInput placeholder="Estado" [(ngModel)]="cliente.endereco.endEstado" name="endEstado">
+</mat-form-field>
+
+     <!-- País - NÃO obrigatório -->
+<mat-form-field appearance="fill">
+  <input matInput placeholder="País" [(ngModel)]="cliente.endereco.endPais" name="endPais">
+</mat-form-field>
     </div>
-    </form>
 
-    <button mat-raised-button (click)="createCliente()" color="primary">
-        Salvar
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+      Salvar
     </button>
-    <!-- Botão com estilo elevado do Angular Material.
-         Ao ser clicado, chama o método "createCliente()", que deve estar definido no componente.
-         A cor primária dá destaque visual ao botão. -->
 
-    <button mat-raised-button (click)="cancel()">
-        Cancelar
+    <button mat-raised-button (click)="cancel()" type="button">
+      Cancelar
     </button>
-    
+  </form>
 </mat-card>

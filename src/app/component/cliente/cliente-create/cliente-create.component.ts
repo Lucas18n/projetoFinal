@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ClienteService } from '../cliente.service';
 import { Router } from '@angular/router';
-import { Cliente } from '../cliente.model';
+import { Cliente, ClientePayload } from '../cliente.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-cliente-create', // Nome da tag HTML usada para representar este componente.
@@ -10,35 +11,69 @@ import { Cliente } from '../cliente.model';
 })
 
 export class ClienteCreateComponent implements OnInit{
-cliente: Cliente = {
-  cliNome: '',
-  cliCpf: '',
-  dataNascimento: new Date().toISOString() ,
-  cliformaPagamento: '',
-  cliAtivo: true
-}
+  cliente: Cliente = {
+    cliNome: '',
+    cliCpf: '',
+    dataNascimento: new Date().toISOString(),
+    cliEstCivil: '',
+    cliProfissao: '',
+    cliAtivo: true,
+    contato: {
+      conCelular: '',
+      conTelefoneComercial: '',
+      conEmail: ''
+    },
+    endereco: {
+      endRua: '',
+      endNumero: '',
+      endCidade: '',
+      endCep: '',
+      endEstado: '',
+      endPais: ''
+    }
+  };
+  
 
  // Categorias fixas para seleção
- formaPagamento: string[] = ['Débito', 'Crédito', 'Boleto Bancário'];
+ cliEstCivil: string[] = ['Solteiro', 'Casado', 'Divorciado', 'Viúvo'];
+
 constructor(private clienteService: ClienteService,
   private router: Router) { }
 
 ngOnInit(): void {
     
 }
-createCliente(): void {
+createCliente(form: NgForm): void {
+  if (form.invalid) {
+    this.clienteService.showMessage('Por favor, preencha todos os campos obrigatórios!');
+    return;
+  }
+
   const data = new Date(this.cliente.dataNascimento);
   this.cliente.dataNascimento = data.toISOString().slice(0, 19); // "YYYY-MM-DDTHH:mm:ss"
 
-  this.clienteService.create(this.cliente).subscribe(() => {
+  const payload = {
+    cliNome: this.cliente.cliNome,
+    cliCpf: this.cliente.cliCpf,
+    cliProfissao: this.cliente.cliProfissao,
+    cliEstCivil: this.cliente.cliEstCivil,
+    cliAtivo: this.cliente.cliAtivo,
+    dataNascimento: this.cliente.dataNascimento,
+
+    ...this.cliente.contato,
+    ...this.cliente.endereco
+  };
+
+  this.clienteService.create(payload).subscribe(() => {
     this.clienteService.showMessage('Cliente Criado!!!');
     this.router.navigate(['/clientes']);
   }, error => {
     console.error('Erro ao criar cliente:', error);
-    console.log('Payload enviado:', this.cliente);
-
+    console.log('Payload enviado:', payload);
   });
 }
+
+
 
 cancel(): void
 {

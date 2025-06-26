@@ -1,25 +1,94 @@
 <mat-card>
     <mat-card-title>Novo Fornecedor</mat-card-title>
-    <form>
-        <mat-form-field>
-            <input matInput placeholder="Nome Fanatasia" [(ngModel)]="fornecedor.nameFanatasia" name="nameFanatasia">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Razão Social" [(ngModel)]="fornecedor.razao_Social" name="razao_Social">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="CPF / CNPJ" [(ngModel)]="fornecedor.cpfCnpj" name="cpfCnpj">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Status" [(ngModel)]="fornecedor.status" name="status">
-        </mat-form-field>
+  
+    <form #form="ngForm" (ngSubmit)="createFornecedor(form)">
+      <!-- Dados do Fornecedor -->
+      <mat-form-field>
+        <input matInput placeholder="Nome Fantasia" [(ngModel)]="fornecedor.forNomeFantasia" name="forNomeFantasia" required>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="CPF / CNPJ" [(ngModel)]="fornecedor.forCnpj" name="forCnpj" required>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Razao Social" [(ngModel)]="fornecedor.forRazaoSocial" name="forRazaoSocial" required>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Fornecedor Responsável" [(ngModel)]="fornecedor.forResponsavel" name="forResponsavel" required>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Tipo de Empresa</mat-label>
+        <mat-select [(ngModel)]="fornecedor.ForTipoEmpresa" name="ForTipoEmpresa" required>
+          <mat-option value="MEI">MEI</mat-option>
+          <mat-option value="EPP">EPP</mat-option>
+          <mat-option value="LTDA">LTDA</mat-option>
+          <mat-option value="SA">S/A</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Fornecedor Ativo?</mat-label>
+        <mat-select [(ngModel)]="fornecedor.forAtivo" name="forAtivo" required>
+          <mat-option [value]="true">Sim</mat-option>
+          <mat-option [value]="false">Não</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <!-- Dados do Contato -->
+      <mat-divider></mat-divider>
+      <h3>Contato</h3>
+  
+      <mat-form-field>
+        <input matInput placeholder="Celular" [(ngModel)]="contato.conCelular" name="conCelular" required>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Telefone Comercial" [(ngModel)]="contato.conTelefoneComercial" name="conTelefoneComercial">
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="E-mail" [(ngModel)]="contato.conEmail" name="conEmail" required email>
+      </mat-form-field>
+  
+      <!-- Dados do Endereço -->
+      <mat-divider></mat-divider>
+      <h3>Endereço</h3>
+  
+      <mat-form-field>
+        <input matInput placeholder="Rua" [(ngModel)]="endereco.endRua" name="endRua" required>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Número" [(ngModel)]="endereco.endNumero" name="endNumero" required>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Cidade" [(ngModel)]="endereco.endCidade" name="endCidade" required>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="CEP" [(ngModel)]="endereco.endCep" name="endCep" required>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Estado" [(ngModel)]="endereco.endEstado" name="endEstado" required>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="País" [(ngModel)]="endereco.endPais" name="endPais" required>
+      </mat-form-field>
+  
+      <div class="actions">
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+          Salvar
+        </button>
+        <button mat-raised-button type="button" (click)="cancel()">
+          Cancelar
+        </button>
+      </div>
     </form>
-
-    <button mat-raised-button (click)="createFornecedor()" color="primary">
-        Salvar
-    </button>
-   
-    <button mat-raised-button (click)="cancel()">
-        Cancelar
-    </button>
-</mat-card>
+  </mat-card>
+  

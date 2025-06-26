@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Cliente } from './cliente.model';
+import { Cliente, ClientePayload } from './cliente.model';
 import { Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
@@ -26,9 +26,8 @@ export class ClienteService
   }
 
   //Metodo para criar cliente
-  create(cliente: Cliente): Observable<Cliente>
-  {
-    return this.http.post<Cliente>(this.baseUrl, cliente)
+  create(cliente: ClientePayload): Observable<Cliente> {
+    return this.http.post<Cliente>(this.baseUrl, cliente);
   }
 
   //Metodo para carregar os dados do cliente

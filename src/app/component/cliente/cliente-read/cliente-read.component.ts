@@ -9,7 +9,7 @@ import { ClienteService } from '../cliente.service';
 })
 export class ClienteReadComponent {
   cliente!: Cliente[]
-    displayedColumns = ['cliId', 'cliNome', 'cliCpf', 'cliformaPagamento', 'cliAtivo', 'action']
+    displayedColumns = ['cliId', 'cliNome', 'cliCpf', 'cliProfissao', 'cliAtivo', 'action']
   
     constructor(private clienteService: ClienteService) { }
   

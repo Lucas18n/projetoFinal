@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Fornecedor } from './fornecedor.model';
+import { Fornecedor, FornecedorPayload } from './fornecedor.model';
 import { Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FornecedorService 
 {
-  baseUrl = "http://localhost:3001/fornecedor"
+  baseUrl = "http://localhost:8080/fornecedores"
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 
@@ -22,9 +22,8 @@ export class FornecedorService
         verticalPosition: "top"
       })
   }
-  create(fornecedor: Fornecedor): Observable<Fornecedor>
-  {
-    return this.http.post<Fornecedor>(this.baseUrl, fornecedor)
+  create(fornecedor: FornecedorPayload): Observable<Fornecedor> {
+    return this.http.post<Fornecedor>(this.baseUrl, fornecedor);
   }
   read(): Observable<Fornecedor[]>
   {
