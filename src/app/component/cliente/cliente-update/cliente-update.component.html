@@ -1,1 +1,85 @@
-<p>cliente-update works!</p>
+<mat-card>
+    <mat-card-title>Alterar Cliente</mat-card-title>
+    <form>
+      <div class="form-grid">
+  
+        <mat-form-field>
+          <input matInput placeholder="Nome" [(ngModel)]="cliente.cliNome" name="cliNome" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="CPF" [(ngModel)]="cliente.cliCpf" name="cliCpf" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Profissão" [(ngModel)]="cliente.cliProfissao" name="cliProfissao" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Estado Civil" [(ngModel)]="cliente.cliEstCivil" name="cliEstCivil" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Cliente Ativo?</mat-label>
+          <mat-select [(ngModel)]="cliente.cliAtivo" name="cliAtivo">
+            <mat-option [value]="true">Sim</mat-option>
+            <mat-option [value]="false">Não</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Data de Nascimento" [(ngModel)]="cliente.dataNascimento" name="dataNascimento" />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+  
+        <!-- Endereço -->
+        <mat-form-field>
+          <input matInput placeholder="Rua" [(ngModel)]="cliente.endereco.endRua" name="endRua" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Número" [(ngModel)]="cliente.endereco.endNumero" name="endNumero" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Cidade" [(ngModel)]="cliente.endereco.endCidade" name="endCidade" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="CEP" [(ngModel)]="cliente.endereco.endCep" name="endCep" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Estado" [(ngModel)]="cliente.endereco.endEstado" name="endEstado" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="País" [(ngModel)]="cliente.endereco.endPais" name="endPais" />
+        </mat-form-field>
+  
+        <!-- Contato -->
+        <mat-form-field>
+          <input matInput placeholder="Celular" [(ngModel)]="cliente.contato.conCelular" name="conCelular" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Telefone Comercial" [(ngModel)]="cliente.contato.conTelefoneComercial" name="conTelefoneComercial" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Email" [(ngModel)]="cliente.contato.conEmail" name="conEmail" />
+        </mat-form-field>
+  
+      </div>
+    </form>
+  
+    <button mat-raised-button (click)="updateCliente()" color="primary">
+      Atualizar
+    </button>
+  
+    <button mat-raised-button (click)="cancel()">
+      Cancelar
+    </button>
+  </mat-card>
+  

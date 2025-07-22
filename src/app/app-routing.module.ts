@@ -13,6 +13,7 @@ import { FormaPagamentoCrudComponent } from './views/forma-pagamento-crud/forma-
 import { FormaPagamentoCreateComponent } from './component/formaPagamento/forma-pagamento-create/forma-pagamento-create.component';
 import { FormaPagamentoDeleteComponent } from './component/formaPagamento/forma-pagamento-delete/forma-pagamento-delete.component';
 import { FormaPagamentoUpdateComponent } from './component/formaPagamento/forma-pagamento-update/forma-pagamento-update.component';
+import { ClienteUpdateComponent } from './component/cliente/cliente-update/cliente-update.component';
 
 const routes: Routes = [
 {
@@ -80,6 +81,12 @@ const routes: Routes = [
   path: "cliente/create",
   component: ClienteCreateComponent
 },
+
+{
+  path: "cliente/update/:id",
+  component: ClienteUpdateComponent
+},
+
 ///////////////////////////Cliente FIM
 ];
 
