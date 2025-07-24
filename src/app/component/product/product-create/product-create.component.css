@@ -26,3 +26,13 @@ button
   mat-form-field{
       width: 95%;
   }
+
+  /* Estilo para o botão Salvar */
+.btn-salvar {
+  background-color: #28a745; /* Verde */
+}
+
+/* Estilo para o botão Cancelar */
+.btn-cancelar {
+  background-color: #dc3545; /* Vermelho */
+}

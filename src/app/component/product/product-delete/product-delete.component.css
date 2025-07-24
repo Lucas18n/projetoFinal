@@ -3,8 +3,13 @@ form{
     flex-direction: column;
 }
 
-button{
+button
+{
     margin: 20px 15px 0px 0px;
+    background-color: rgb(190, 223, 245);
+    color: rgb(0, 0, 0);
+    font-family: 'Rockwell', Arial, sans-serif;
+    font-size: 20px;
 }
 
 .form-grid {
@@ -21,3 +26,13 @@ button{
   mat-form-field{
       width: 95%;
   }
+
+   /* Estilo para o botão Salvar */
+.btn-excluir {
+  background-color: #ff0000; /* Verde */
+}
+
+/* Estilo para o botão Cancelar */
+.btn-cancelar {
+  background-color: #c5a7aa; /* Vermelho */
+}

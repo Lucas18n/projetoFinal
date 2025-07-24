@@ -22,8 +22,8 @@
         <mat-form-field>
           <mat-label>Cliente Ativo?</mat-label>
           <mat-select [(ngModel)]="cliente.cliAtivo" name="cliAtivo">
-            <mat-option [value]="true">Sim</mat-option>
-            <mat-option [value]="false">Não</mat-option>
+            <mat-option [value]="true">Ativo</mat-option>
+            <mat-option [value]="false">Inativo</mat-option>
           </mat-select>
         </mat-form-field>
   
@@ -32,8 +32,10 @@
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
+      </div>
   
         <!-- Endereço -->
+        <div class="form-grid">
         <mat-form-field>
           <input matInput placeholder="Rua" [(ngModel)]="cliente.endereco.endRua" name="endRua" />
         </mat-form-field>
@@ -57,8 +59,9 @@
         <mat-form-field>
           <input matInput placeholder="País" [(ngModel)]="cliente.endereco.endPais" name="endPais" />
         </mat-form-field>
-  
+  </div>
         <!-- Contato -->
+        <div class="form-grid">
         <mat-form-field>
           <input matInput placeholder="Celular" [(ngModel)]="cliente.contato.conCelular" name="conCelular" />
         </mat-form-field>
@@ -74,12 +77,14 @@
       </div>
     </form>
   
-    <button mat-raised-button (click)="updateCliente()" color="primary">
+    <div class="actions">
+    <button mat-raised-button (click)="updateCliente()" color="primary" class="btn-salvar">
       Atualizar
     </button>
   
-    <button mat-raised-button (click)="cancel()">
+    <button mat-raised-button (click)="cancel()" class="btn-cancelar">
       Cancelar
     </button>
+    </div>
   </mat-card>
   

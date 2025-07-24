@@ -1,5 +1,6 @@
 table{
     width: 100%;
+    background-color: #fcbf6b;
 }
 
 .edit > i{
@@ -13,4 +14,9 @@ th
 {
     font-family: 'Rockwell', Arial, sans-serif;
     font-size: 25px;
+    color: #3C3C3C;
+}
+td
+{
+    color: #3C3C3C;
 }

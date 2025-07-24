@@ -1,94 +1,115 @@
 <mat-card>
-    <mat-card-title>Novo Fornecedor</mat-card-title>
-  
-    <form #form="ngForm" (ngSubmit)="createFornecedor(form)">
-      <!-- Dados do Fornecedor -->
-      <mat-form-field>
-        <input matInput placeholder="Nome Fantasia" [(ngModel)]="fornecedor.forNomeFantasia" name="forNomeFantasia" required>
-      </mat-form-field>
-  
-      <mat-form-field>
-        <input matInput placeholder="CPF / CNPJ" [(ngModel)]="fornecedor.forCnpj" name="forCnpj" required>
-      </mat-form-field>
-  
-      <mat-form-field>
-        <input matInput placeholder="Razao Social" [(ngModel)]="fornecedor.forRazaoSocial" name="forRazaoSocial" required>
-      </mat-form-field>
-  
-      <mat-form-field>
-        <input matInput placeholder="Fornecedor Responsável" [(ngModel)]="fornecedor.forResponsavel" name="forResponsavel" required>
-      </mat-form-field>
-  
-      <mat-form-field appearance="fill">
-        <mat-label>Tipo de Empresa</mat-label>
-        <mat-select [(ngModel)]="fornecedor.ForTipoEmpresa" name="ForTipoEmpresa" required>
-          <mat-option value="MEI">MEI</mat-option>
-          <mat-option value="EPP">EPP</mat-option>
-          <mat-option value="LTDA">LTDA</mat-option>
-          <mat-option value="SA">S/A</mat-option>
-        </mat-select>
-      </mat-form-field>
-  
-      <mat-form-field>
-        <mat-label>Fornecedor Ativo?</mat-label>
-        <mat-select [(ngModel)]="fornecedor.forAtivo" name="forAtivo" required>
-          <mat-option [value]="true">Sim</mat-option>
-          <mat-option [value]="false">Não</mat-option>
-        </mat-select>
-      </mat-form-field>
-  
-      <!-- Dados do Contato -->
-      <mat-divider></mat-divider>
-      <h3>Contato</h3>
-  
-      <mat-form-field>
-        <input matInput placeholder="Celular" [(ngModel)]="contato.conCelular" name="conCelular" required>
-      </mat-form-field>
-  
-      <mat-form-field>
-        <input matInput placeholder="Telefone Comercial" [(ngModel)]="contato.conTelefoneComercial" name="conTelefoneComercial">
-      </mat-form-field>
-  
-      <mat-form-field>
-        <input matInput placeholder="E-mail" [(ngModel)]="contato.conEmail" name="conEmail" required email>
-      </mat-form-field>
-  
-      <!-- Dados do Endereço -->
-      <mat-divider></mat-divider>
-      <h3>Endereço</h3>
-  
-      <mat-form-field>
-        <input matInput placeholder="Rua" [(ngModel)]="endereco.endRua" name="endRua" required>
-      </mat-form-field>
-  
-      <mat-form-field>
-        <input matInput placeholder="Número" [(ngModel)]="endereco.endNumero" name="endNumero" required>
-      </mat-form-field>
-  
-      <mat-form-field>
-        <input matInput placeholder="Cidade" [(ngModel)]="endereco.endCidade" name="endCidade" required>
-      </mat-form-field>
-  
-      <mat-form-field>
-        <input matInput placeholder="CEP" [(ngModel)]="endereco.endCep" name="endCep" required>
-      </mat-form-field>
-  
-      <mat-form-field>
-        <input matInput placeholder="Estado" [(ngModel)]="endereco.endEstado" name="endEstado" required>
-      </mat-form-field>
-  
-      <mat-form-field>
-        <input matInput placeholder="País" [(ngModel)]="endereco.endPais" name="endPais" required>
-      </mat-form-field>
-  
-      <div class="actions">
-        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
-          Salvar
-        </button>
-        <button mat-raised-button type="button" (click)="cancel()">
-          Cancelar
-        </button>
-      </div>
-    </form>
-  </mat-card>
-  
+  <mat-card-title>Novo Fornecedor</mat-card-title>
+
+  <form #form="ngForm" (ngSubmit)="createFornecedor(form)">
+    <mat-card-title>Informações Empresariais</mat-card-title>
+    <div class="form-grid">
+    
+    <!-- Dados do Fornecedor -->
+    <mat-form-field>
+      <input matInput placeholder="Nome Fantasia" [(ngModel)]="fornecedor.forNomeFantasia" name="forNomeFantasia" required #forNomeFantasia="ngModel">
+      <mat-error *ngIf="forNomeFantasia.invalid && forNomeFantasia.touched">Nome Fantasia é obrigatório</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="CPF / CNPJ" [(ngModel)]="fornecedor.forCnpj" name="forCnpj" required #forCnpj="ngModel">
+      <mat-error *ngIf="forCnpj.invalid && forCnpj.touched">CPF / CNPJ é obrigatório</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Razão Social" [(ngModel)]="fornecedor.forRazaoSocial" name="forRazaoSocial" required #forRazaoSocial="ngModel">
+      <mat-error *ngIf="forRazaoSocial.invalid && forRazaoSocial.touched">Razão Social é obrigatória</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Fornecedor Responsável" [(ngModel)]="fornecedor.forResponsavel" name="forResponsavel" required #forResponsavel="ngModel">
+      <mat-error *ngIf="forResponsavel.invalid && forResponsavel.touched">Fornecedor Responsável é obrigatório</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Tipo de Empresa</mat-label>
+      <mat-select [(ngModel)]="fornecedor.forTipoEmpresa" name="forTipoEmpresa" required #forTipoEmpresa="ngModel">
+        <mat-option value="MEI">MEI</mat-option>
+        <mat-option value="EPP">EPP</mat-option>
+        <mat-option value="LTDA">LTDA</mat-option>
+        <mat-option value="SA">S/A</mat-option>
+      </mat-select>
+      <mat-error *ngIf="forTipoEmpresa.invalid && forTipoEmpresa.touched">Tipo de Empresa é obrigatório</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Fornecedor Ativo?</mat-label>
+      <mat-select [(ngModel)]="fornecedor.forAtivo" name="forAtivo" required #forAtivo="ngModel">
+        <mat-option [value]="true">Sim</mat-option>
+        <mat-option [value]="false">Não</mat-option>
+      </mat-select>
+      <mat-error *ngIf="forAtivo.invalid && forAtivo.touched">Campo obrigatório</mat-error>
+    </mat-form-field>
+  </div>
+
+    <!-- Dados do Contato -->
+    <mat-divider></mat-divider>
+    <mat-card-title>Contato</mat-card-title>
+    <div class="form-grid">
+
+    <mat-form-field>
+      <input matInput placeholder="Celular" [(ngModel)]="contato.conCelular" name="conCelular" required #conCelular="ngModel">
+      <mat-error *ngIf="conCelular.invalid && conCelular.touched">Celular é obrigatório</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Telefone Comercial" [(ngModel)]="contato.conTelefoneComercial" name="conTelefoneComercial">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="E-mail" [(ngModel)]="contato.conEmail" name="conEmail" required email #conEmail="ngModel">
+      <mat-error *ngIf="conEmail.invalid && conEmail.touched">E-mail inválido</mat-error>
+    </mat-form-field>
+  </div>
+
+    <!-- Dados do Endereço -->
+    <mat-divider></mat-divider>
+    <mat-card-title>Endereço</mat-card-title>
+    <div class="form-grid">
+
+    <mat-form-field>
+      <input matInput placeholder="Rua" [(ngModel)]="endereco.endRua" name="endRua" required #endRua="ngModel">
+      <mat-error *ngIf="endRua.invalid && endRua.touched">Rua é obrigatória</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Número" [(ngModel)]="endereco.endNumero" name="endNumero" required #endNumero="ngModel">
+      <mat-error *ngIf="endNumero.invalid && endNumero.touched">Número é obrigatório</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Cidade" [(ngModel)]="endereco.endCidade" name="endCidade" required #endCidade="ngModel">
+      <mat-error *ngIf="endCidade.invalid && endCidade.touched">Cidade é obrigatória</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="CEP" [(ngModel)]="endereco.endCep" name="endCep" required #endCep="ngModel">
+      <mat-error *ngIf="endCep.invalid && endCep.touched">CEP é obrigatório</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Estado" [(ngModel)]="endereco.endEstado" name="endEstado" required #endEstado="ngModel">
+      <mat-error *ngIf="endEstado.invalid && endEstado.touched">Estado é obrigatório</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="País" [(ngModel)]="endereco.endPais" name="endPais" required #endPais="ngModel">
+      <mat-error *ngIf="endPais.invalid && endPais.touched">País é obrigatório</mat-error>
+    </mat-form-field>
+  </div>
+
+    <div class="actions">
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid" class="btn-salvar">
+        Salvar
+      </button>
+      <button mat-raised-button type="button" (click)="cancel()" class="btn-cancelar">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</mat-card>

@@ -33,8 +33,8 @@
           <mat-form-field>
             <mat-label>Produto Ativo?</mat-label>
             <mat-select [(ngModel)]="product.ativo" name="ativo">
-              <mat-option [value]="true">Sim</mat-option>
-              <mat-option [value]="false">Não</mat-option>
+              <mat-option [value]="true">Ativo</mat-option>
+              <mat-option [value]="false">Inativo</mat-option>
             </mat-select>
           </mat-form-field>
       
@@ -46,12 +46,13 @@
         </div>
     </form>
 
-    <button mat-raised-button (click)="updateProduct()" color="primary">
+    <div class="actions">
+    <button mat-raised-button (click)="updateProduct()" color="primary" class="btn-salvar">
         Atualizar
     </button>
-   
-    <button mat-raised-button (click)="cancel()">
+    
+    <button mat-raised-button (click)="cancel()" class="btn-cancelar">
         Cancelar
     </button>
-
+</div>
 </mat-card>

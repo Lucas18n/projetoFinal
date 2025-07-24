@@ -2,7 +2,7 @@
   <mat-card-title>Novo Cliente</mat-card-title>
 
   <form #form="ngForm" (ngSubmit)="createCliente(form)">
-    <mat-card-title>Cliente</mat-card-title>
+    <mat-card-title>Informações Pessoais</mat-card-title>
     <div class="form-grid">
 
       <mat-form-field>
@@ -85,8 +85,8 @@
           required
           #cliAtivo="ngModel"
         >
-          <mat-option [value]="true">Sim</mat-option>
-          <mat-option [value]="false">Não</mat-option>
+          <mat-option [value]="true">Ativo</mat-option>
+          <mat-option [value]="false">Inativo</mat-option>
         </mat-select>
         <mat-error *ngIf="cliAtivo.invalid && cliAtivo.touched">
           Campo obrigatório
@@ -180,12 +180,14 @@
 </mat-form-field>
     </div>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+    <div class="actions">
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid" class="btn-salvar">
       Salvar
     </button>
 
-    <button mat-raised-button (click)="cancel()" type="button">
+    <button mat-raised-button (click)="cancel()" type="button" class="btn-cancelar">
       Cancelar
     </button>
+  </div>
   </form>
 </mat-card>

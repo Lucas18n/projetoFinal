@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormaPagamento } from '../forma-pagamento.model';
 import { FormaPagamentoService } from '../forma-pagamento.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';  // Certifique-se de que 'NgForm' está importado aqui
 
 @Component({
   selector: 'app-forma-pagamento-create',
@@ -25,11 +26,15 @@ export class FormaPagamentoCreateComponent {
 
   ngOnInit(): void {}
 
-  createFormaPagamento(): void {
-    this.formaPagamentoService.create(this.formaPagamento).subscribe(() => {
-      this.formaPagamentoService.showMessage('Forma de pagamento Criada!!!');
-      this.router.navigate(['/formaPagamento']);
-    });
+  createFormaPagamento(form: NgForm): void {
+    // Certifique-se de que a verificação de 'form.valid' esteja aqui
+    if (form.valid) {
+      // Se o formulário for válido, realiza o processo de criação
+      this.formaPagamentoService.create(this.formaPagamento).subscribe(() => {
+        this.formaPagamentoService.showMessage('Forma de pagamento Criada!!!');
+        this.router.navigate(['/formaPagamento']);
+      });
+    }
   }
 
   cancel(): void {

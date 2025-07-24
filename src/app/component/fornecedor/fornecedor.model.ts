@@ -1,11 +1,11 @@
 export interface Fornecedor
 {
-    id?: number
+  forId?: number
     forNomeFantasia: string
     forCnpj: string
     forRazaoSocial: string
     forResponsavel: string
-    ForTipoEmpresa: string
+    forTipoEmpresa: string
     forAtivo: boolean
 }
 
@@ -29,7 +29,7 @@ export interface Contato {
     forCnpj: string;
     forRazaoSocial: string;
     forResponsavel: string;
-    ForTipoEmpresa: string;
+    forTipoEmpresa: string;
     forAtivo: boolean;
   
     conCelular: string;

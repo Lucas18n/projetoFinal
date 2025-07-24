@@ -42,12 +42,13 @@
         </div>
     </form>
 
-    <button mat-raised-button (click)="deleteProduct()" color="warn">
+    <div class="actions">
+    <button mat-raised-button (click)="deleteProduct()" color="warn" class="btn-excluir">
         Excluir
     </button>
    
-    <button mat-raised-button (click)="cancel()">
-        Cancelar
+    <button mat-raised-button (click)="cancel()" class="btn-cancelar">
+        Voltar
     </button>
-
+</div>
 </mat-card>

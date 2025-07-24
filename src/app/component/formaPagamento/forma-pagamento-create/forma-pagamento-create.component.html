@@ -1,42 +1,88 @@
 <mat-card>
   <mat-card-title>Nova Forma de Pagamento</mat-card-title>
 
-  <form>
+  <form #form="ngForm" (ngSubmit)="createFormaPagamento(form)">
+    <div class="form-grid">
     <mat-form-field>
-      <input matInput placeholder="Descrição" [(ngModel)]="formaPagamento.fpgDescricao" name="fpgDescricao">
+      <input 
+        matInput 
+        placeholder="Descrição" 
+        [(ngModel)]="formaPagamento.fpgDescricao" 
+        name="fpgDescricao" 
+        required 
+        #fpgDescricao="ngModel">
+      <mat-error *ngIf="fpgDescricao.invalid && fpgDescricao.touched">
+        Descrição é obrigatória.
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Forma De Pagamento ativa?</mat-label>
-      <mat-select [(ngModel)]="formaPagamento.ativo" name="ativo">
-        <mat-option [value]="true">Sim</mat-option>
-        <mat-option [value]="false">Não</mat-option>
+      <mat-select 
+        [(ngModel)]="formaPagamento.ativo" 
+        name="ativo" 
+        required 
+        #ativo="ngModel">
+        <mat-option [value]="true">Ativa</mat-option>
+        <mat-option [value]="false">Inativa</mat-option>
       </mat-select>
+      <mat-error *ngIf="ativo.invalid && ativo.touched">
+        Status é obrigatório.
+      </mat-error>
     </mat-form-field>
     
     <mat-form-field>
       <mat-label>Permite Parcelamento</mat-label>
-      <mat-select [(ngModel)]="formaPagamento.permiteParcelamento" name="permiteParcelamento">
-        <mat-option [value]="true">Sim</mat-option>
-        <mat-option [value]="false">Não</mat-option>
+      <mat-select 
+        [(ngModel)]="formaPagamento.permiteParcelamento" 
+        name="permiteParcelamento" 
+        required 
+        #permiteParcelamento="ngModel">
+        <mat-option [value]="true">Permite</mat-option>
+        <mat-option [value]="false">Não Permite</mat-option>
       </mat-select>
+      <mat-error *ngIf="permiteParcelamento.invalid && permiteParcelamento.touched">
+        Parcelamento é obrigatório.
+      </mat-error>
     </mat-form-field>
-    
+ 
+    <mat-form-field>
+      <input 
+        matInput 
+        type="number" 
+        placeholder="Número Máximo de Parcelas" 
+        [(ngModel)]="formaPagamento.numeroMaximoParcelas" 
+        name="numeroMaximoParcelas" 
+        required 
+        #numeroMaximoParcelas="ngModel">
+      <mat-error *ngIf="numeroMaximoParcelas.invalid && numeroMaximoParcelas.touched">
+        Número máximo de parcelas é obrigatório.
+      </mat-error>
+    </mat-form-field>
 
     <mat-form-field>
-      <input matInput type="number" placeholder="Número Máximo de Parcelas" [(ngModel)]="formaPagamento.numeroMaximoParcelas" name="numeroMaximoParcelas">
+      <input 
+        matInput 
+        type="number" 
+        step="0.01" 
+        placeholder="Taxa Adicional (%)" 
+        [(ngModel)]="formaPagamento.taxaAdicional" 
+        name="taxaAdicional" 
+        required 
+        #taxaAdicional="ngModel">
+      <mat-error *ngIf="taxaAdicional.invalid && taxaAdicional.touched">
+        Taxa adicional é obrigatória.
+      </mat-error>
     </mat-form-field>
+  </div>
+    <div class="actions">
+    <button mat-raised-button color="primary" [disabled]="form.invalid" type="submit" class="btn-salvar">
+      Salvar
+    </button>
 
-    <mat-form-field>
-      <input matInput type="number" step="0.01" placeholder="Taxa Adicional (%)" [(ngModel)]="formaPagamento.taxaAdicional" name="taxaAdicional">
-    </mat-form-field>
+    <button mat-raised-button (click)="cancel()" class="btn-cancelar">
+      Cancelar
+    </button>
+</div>
   </form>
-
-  <button mat-raised-button (click)="createFormaPagamento()" color="primary">
-    Salvar
-  </button>
-
-  <button mat-raised-button (click)="cancel()">
-    Cancelar
-  </button>
 </mat-card>

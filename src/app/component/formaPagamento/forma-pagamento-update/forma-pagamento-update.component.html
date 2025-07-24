@@ -1,6 +1,7 @@
 <mat-card>
     <mat-card-title>Alterar Forma De Pagamento</mat-card-title>
     <form>
+      <div class="form-grid">
         <mat-form-field>
             <input matInput placeholder="Descrição" [(ngModel)]="formaPagamento.fpgDescricao" name="fpgDescricao">
           </mat-form-field>
@@ -28,15 +29,15 @@
           <mat-form-field>
             <input matInput type="number" step="0.01" placeholder="Taxa Adicional (%)" [(ngModel)]="formaPagamento.taxaAdicional" name="taxaAdicional">
           </mat-form-field>
-       
+       </div>
     </form>
-
-    <button mat-raised-button (click)="updateFormaPagamento()" color="primary">
+    <div class="actions">
+    <button mat-raised-button (click)="updateFormaPagamento()" color="primary" class="btn-salvar">
         Atualizar
     </button>
    
-    <button mat-raised-button (click)="cancel()">
+    <button mat-raised-button (click)="cancel()" class="btn-cancelar">
         Cancelar
     </button>
-
+    </div>
 </mat-card>

@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ClienteService } from '../cliente.service';
 import { Router } from '@angular/router';
 import { Cliente, ClientePayload } from '../cliente.model';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-cliente-create', // Nome da tag HTML usada para representar este componente.
-  templateUrl: './cliente-create.component.html', // Caminho do arquivo HTML com o formulário de criação.
-  styleUrls: ['./cliente-create.component.css'] // Estilos específicos deste componente.
+  selector: 'app-cliente-create',
+  templateUrl: './cliente-create.component.html',
+  styleUrls: ['./cliente-create.component.css'], // ou .scss se estiver usando SCSS
+  encapsulation: ViewEncapsulation.None // ⬅️ adicionado aqui
 })
 
 export class ClienteCreateComponent implements OnInit{
