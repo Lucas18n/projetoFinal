@@ -41,19 +41,13 @@ export class FornecedorCreateComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // Método para criação do fornecedor
   createFornecedor(form: NgForm): void {
-    // Verifica se o formulário está válido
-  
-
-    // Combina todos os dados do fornecedor, contato e endereço
     const payload: FornecedorPayload = {
       ...this.fornecedor,
       ...this.contato,
       ...this.endereco
     };
 
-    // Chama o serviço para criar o fornecedor e navega para a lista
     this.fornecedorService.create(payload).subscribe(() => {
       this.fornecedorService.showMessage('Fornecedor criado com sucesso!');
       this.router.navigate(['/fornecedores']);
@@ -64,8 +58,36 @@ export class FornecedorCreateComponent implements OnInit {
     });
   }
 
-  // Método de cancelamento
   cancel(): void {
     this.router.navigate(['/fornecedores']);
+  }
+
+  limparCampos(form: NgForm): void {
+    form.resetForm(); // limpa estados de validação e toque
+
+    // redefine todos os objetos para os valores iniciais
+    this.fornecedor = {
+      forNomeFantasia: '',
+      forCnpj: '',
+      forRazaoSocial: '',
+      forResponsavel: '',
+      forTipoEmpresa: '',
+      forAtivo: true
+    };
+
+    this.contato = {
+      conCelular: '',
+      conTelefoneComercial: '',
+      conEmail: ''
+    };
+
+    this.endereco = {
+      endRua: '',
+      endNumero: '',
+      endCidade: '',
+      endCep: '',
+      endEstado: '',
+      endPais: ''
+    };
   }
 }

@@ -55,4 +55,22 @@ export class ProductCreateComponent implements OnInit {
   cancel(): void {
     this.router.navigate(['/products']);
   }
+
+  limparCampos(form: NgForm): void {
+    form.resetForm();  // limpa os estados do formulário
+  
+    this.product = {
+      proNome: '',
+      proPrecoCusto: 0,
+      proPrecoVenda: 0,
+      quantidadeEstoque: 0,
+      categoria: '',
+      codigoBarras: '',
+      marca: '',
+      unidadeMedida: '',
+      ativo: true,
+      dataCadastro: new Date().toISOString()
+    };
+  }
+  
 }
