@@ -15,23 +15,28 @@ export class ProductDeleteComponent {
   constructor(
     private productService: ProductService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.productService.readById(id!).subscribe(product =>{
-      this.product = product
-    })
+    this.productService.readById(id!).subscribe(product => {
+      this.product = product;
+    });
   }
 
   deleteProduct(): void {
-    this.productService.delete(this.product.proId!).subscribe(() =>{
-    this.productService.showMessage('Produto excluido com sucesso!')  
-    this.router.navigate(['/products'])
-    })
+    const confirmar = window.confirm('Tem certeza que deseja excluir este produto?');
+
+    if (confirmar) {
+      this.productService.delete(this.product.proId!).subscribe(() => {
+        this.productService.showMessage('Produto excluído com sucesso!');
+        this.router.navigate(['/products']);
+      });
+    }
   }
 
-  cancel(): void{
-    this.router.navigate(['/products'])
+  cancel(): void {
+    this.router.navigate(['/products']);
   }
 }

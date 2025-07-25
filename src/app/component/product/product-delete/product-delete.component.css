@@ -36,3 +36,7 @@ button
 .btn-cancelar {
   background-color: #c5a7aa; /* Vermelho */
 }
+mat-card-title {
+  text-align: center;
+  color: #fcbf6b;
+}

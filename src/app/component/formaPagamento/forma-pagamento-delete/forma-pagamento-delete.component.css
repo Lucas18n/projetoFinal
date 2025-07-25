@@ -10,3 +10,8 @@ button{
     font-family: 'Rockwell', Arial, sans-serif;
     font-size: 26px;
 }
+
+mat-card-title {
+    text-align: center;
+    color: #fcbf6b;
+  }

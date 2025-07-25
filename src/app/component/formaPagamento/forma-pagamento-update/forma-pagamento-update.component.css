@@ -36,4 +36,9 @@ button {
       width: 95%;
   }
 
+  mat-card-title {
+    text-align: center;
+    color: #fcbf6b;
+  }
+
 

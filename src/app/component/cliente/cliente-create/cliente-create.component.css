@@ -43,6 +43,11 @@ mat-card{
   background-color: #3C3C3C;
 }
 
+mat-card-title {
+  text-align: center;
+  color: #fcbf6b;
+}
+
 
 
 
