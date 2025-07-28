@@ -33,7 +33,7 @@ export class ClienteCreateComponent implements OnInit {
     }
   };
 
-  cliEstCivil: string[] = ['Solteiro', 'Casado', 'Divorciado', 'Viúvo'];
+  cliEstCivil: string[] = ['Solteiro(a)', 'Casado(a)', 'Divorciado(a)', 'Viúvo(a)'];
 
   constructor(
     private clienteService: ClienteService,

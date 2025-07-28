@@ -51,6 +51,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 // Importação do módulo de gráficos
 import { NgChartsModule } from 'ng2-charts';
 
+// Importação correta do ngx-mask para versão 14.3.3
+import { NgxMaskModule } from 'ngx-mask';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,7 +100,8 @@ import { NgChartsModule } from 'ng2-charts';
     MatSelectModule,              
     MatDatepickerModule,          
     MatNativeDateModule,
-    NgChartsModule // <- Aqui adicionado
+    NgChartsModule, // seu módulo de gráficos
+    NgxMaskModule.forRoot() // <-- Aqui, no imports, e não em providers
   ],
   providers: [],
   bootstrap: [AppComponent]

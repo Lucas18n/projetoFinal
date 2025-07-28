@@ -1,0 +1,121 @@
+/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+/* Ativa os estilos base do Material */
+@include mat.core();
+
+/* Cria um tema claro com cores padrões */
+$my-light-theme: mat.define-light-theme((
+  color: (
+    primary: mat.define-palette(mat.$indigo-palette),
+    accent: mat.define-palette(mat.$pink-palette),
+    warn: mat.define-palette(mat.$red-palette),
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
+));
+
+/* Aplica o tema a todos os componentes */
+@include mat.all-component-themes($my-light-theme);
+
+/* ================================
+   ESTILOS GLOBAIS PERSONALIZADOS
+================================== */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  
+  font-family: 'Rockwell', Arial, sans-serif;
+  color: #fcbf6b !important;
+}
+
+mat-card {
+  background-color: #3C3C3C !important;
+  color: #ffffff !important;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+mat-card-subtitle {
+  color: #fcbf6b !important;
+  text-align: center;
+  font-size: 10px;
+}
+
+mat-card-title {
+  color: #fcbf6b !important;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+/* Formulários */
+form {
+  
+  padding: 16px;
+  border-radius: 8px;
+  color: #3C3C3C;
+}
+
+/* Campos de formulário */
+mat-form-field {
+  background-color: #3C3C3C !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-flex {
+  background-color: #3C3C3C !important;
+}
+
+.mat-input-element,
+.mat-select-value {
+  color: #ffffff !important;
+  background-color: transparent !important;
+}
+
+.mat-form-field-label {
+  color: #3C3C3C !important;
+}
+
+.mat-form-field-outline {
+  border-color: #888 !important;
+}
+
+.mat-select-panel,
+.mat-option {
+  background-color: #3C3C3C !important;
+  color: #fcbf6b !important;
+}
+
+.mat-datepicker-toggle-default-icon {
+  color: #fcbf6b !important;
+}
+
+/* Botões */
+button.mat-raised-button {
+  font-family: 'Rockwell', Arial, sans-serif;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.btn-salvar {
+  background-color: #28a745 !important; /* Verde */
+  color: white !important;
+}
+
+.btn-cancelar {
+  background-color: #dc3545 !important; /* Vermelho */
+  color: white !important;
+}
+
+.btn-limpar {
+  background-color: #007bff !important; /* Azul */
+  color: white !important;
+}
+
+
+
+
+
+

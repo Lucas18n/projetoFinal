@@ -37,6 +37,10 @@ button
   background-color: #dc3545; /* Vermelho */
 }
 
+.btn-limpar {
+  background-color: #0018ec;
+}
+
 mat-card-title {
   text-align: center;
   color: #fcbf6b;

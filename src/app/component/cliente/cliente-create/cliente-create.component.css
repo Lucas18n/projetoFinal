@@ -15,18 +15,16 @@ button
 }
 
 .form-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin-bottom: 16px;
-   
-  
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 16px;
+  gap: 16px; /* <-- Isso separa os campos */
+
   @media (max-width: 768px) {
-    .form-grid {
-      grid-template-columns: repeat(1, 1fr);
-     
-    }
+    grid-template-columns: repeat(1, 1fr);
   }
-  }
+}
+
   
 
   /* Estilo para o botão Salvar */
@@ -39,6 +37,19 @@ button
   background-color: #dc3545; /* Vermelho */
 }
 
+.btn-limpar {
+  background-color: #0018ec;
+}
+
+::ng-deep mat-datepicker-toggle .mat-mdc-datepicker-toggle-default-icon {
+  color: #fcbf6b !important;
+}
+
+
+
+
+
+
 mat-card{
   background-color: #3C3C3C;
 }
@@ -47,6 +58,10 @@ mat-card-title {
   text-align: center;
   color: #fcbf6b;
 }
+
+
+
+
 
 
 

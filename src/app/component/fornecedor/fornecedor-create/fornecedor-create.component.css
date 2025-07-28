@@ -12,16 +12,16 @@ button
     font-size: 20px;
 }
 .form-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin-bottom: 16px;
-  
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 16px;
+  gap: 16px; /* <-- Isso separa os campos */
+
   @media (max-width: 768px) {
-    .form-grid {
-      grid-template-columns: repeat(1, 1fr);
-    }
+    grid-template-columns: repeat(1, 1fr);
   }
-  }
+}
+
   mat-form-field{
       width: 95%;
   }
@@ -33,6 +33,10 @@ button
 /* Estilo para o botão Cancelar */
 .btn-cancelar {
     background-color: #dc3545; /* Vermelho */
+}
+
+.btn-limpar {
+  background-color: #0018ec;
 }
 mat-card-title {
   text-align: center;

@@ -21,6 +21,10 @@ button {
     background-color: #dc3545; /* Vermelho */
 }
 
+.btn-limpar {
+  background-color: #0018ec;
+}
+
 .form-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

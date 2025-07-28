@@ -19,6 +19,8 @@
         </mat-error>
       </mat-form-field>
 
+      
+
       <mat-form-field>
         <input
           matInput
@@ -27,13 +29,15 @@
           name="cliCpf"
           required
           #cliCpf="ngModel"
+          [mask]="cliente.cliCpf && cliente.cliCpf.length > 14 ? '00.000.000/0000-00' : '000.000.000-00'"
+          [dropSpecialCharacters]="false"
         />
         <mat-error *ngIf="cliCpf.invalid && cliCpf.touched">
           CPF / CNPJ é obrigatório
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field class="data-nascimento">
         <input
           matInput
           [matDatepicker]="picker1"
@@ -60,7 +64,6 @@
         <mat-error *ngIf="cliEstCivilModel.invalid && cliEstCivilModel.touched">
           Estado Civil é obrigatório
         </mat-error>
-        
       </mat-form-field>
 
       <mat-form-field>
@@ -92,11 +95,14 @@
           Campo obrigatório
         </mat-error>
       </mat-form-field>
+
+    
+      
     </div>
 
     <mat-card-title>Contato</mat-card-title>
     <div class="form-grid">
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <input
           matInput
           placeholder="Celular"
@@ -104,25 +110,40 @@
           name="conCelular"
           required
           #conCelular="ngModel"
+          mask="(00) 00000-0000"
+          [dropSpecialCharacters]="false"
         />
         <mat-error *ngIf="conCelular.invalid && conCelular.touched">
           Celular é obrigatório
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <input matInput placeholder="Telefone Comercial" [(ngModel)]="cliente.contato.conTelefoneComercial" name="conTelefoneComercial" >
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Telefone Comercial"
+          [(ngModel)]="cliente.contato.conTelefoneComercial"
+          name="conTelefoneComercial"
+          mask="(00) 0000-0000"
+          [dropSpecialCharacters]="false"
+        />
       </mat-form-field>
 
       <!-- Email - NÃO obrigatório -->
-<mat-form-field appearance="fill">
-  <input matInput placeholder="E-mail" [(ngModel)]="cliente.contato.conEmail" name="conEmail" email>
-</mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="E-mail"
+          [(ngModel)]="cliente.contato.conEmail"
+          name="conEmail"
+          email
+        />
+      </mat-form-field>
     </div>
 
     <mat-card-title>Endereço</mat-card-title>
     <div class="form-grid">
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <input
           matInput
           placeholder="Rua"
@@ -151,9 +172,14 @@
       </mat-form-field>
 
       <!-- Cidade - NÃO obrigatório -->
-<mat-form-field appearance="fill">
-  <input matInput placeholder="Cidade" [(ngModel)]="cliente.endereco.endCidade" name="endCidade">
-</mat-form-field>
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          placeholder="Cidade"
+          [(ngModel)]="cliente.endereco.endCidade"
+          name="endCidade"
+        />
+      </mat-form-field>
 
       <mat-form-field appearance="fill">
         <input
@@ -163,6 +189,8 @@
           name="endCep"
           required
           #endCep="ngModel"
+          mask="00000-000"
+          [dropSpecialCharacters]="false"
         />
         <mat-error *ngIf="endCep.invalid && endCep.touched">
           CEP é obrigatório
@@ -170,30 +198,55 @@
       </mat-form-field>
 
       <!-- Estado - NÃO obrigatório -->
-<mat-form-field appearance="fill">
-  <input matInput placeholder="Estado" [(ngModel)]="cliente.endereco.endEstado" name="endEstado">
-</mat-form-field>
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          placeholder="Estado"
+          [(ngModel)]="cliente.endereco.endEstado"
+          name="endEstado"
+        />
+      </mat-form-field>
 
-     <!-- País - NÃO obrigatório -->
-<mat-form-field appearance="fill">
-  <input matInput placeholder="País" [(ngModel)]="cliente.endereco.endPais" name="endPais">
-</mat-form-field>
+      <!-- País - NÃO obrigatório -->
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          placeholder="País"
+          [(ngModel)]="cliente.endereco.endPais"
+          name="endPais"
+        />
+      </mat-form-field>
     </div>
 
     <div class="actions">
-    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid" class="btn-salvar">
-      Salvar
-    </button>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="form.invalid"
+        class="btn-salvar"
+      >
+        Salvar
+      </button>
 
-    <button mat-raised-button (click)="cancel()" type="button" class="btn-cancelar">
-      Cancelar
-    </button>
+      <button
+        mat-raised-button
+        (click)="cancel()"
+        type="button"
+        class="btn-cancelar"
+      >
+        Cancelar
+      </button>
 
-    <button mat-raised-button color="warn" type="button" (click)="limparCampos(form)">
-      Limpar
-    </button>
-    
-    
-  </div>
+      <button
+        mat-raised-button
+        color="warn"
+        type="button"
+        class="btn-limpar"
+        (click)="limparCampos(form)"
+      >
+        Limpar
+      </button>
+    </div>
   </form>
 </mat-card>
