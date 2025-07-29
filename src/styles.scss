@@ -22,12 +22,20 @@ $my-light-theme: mat.define-light-theme((
    ESTILOS GLOBAIS PERSONALIZADOS
 ================================== */
 
+/* Importa fontes do Google */
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Playfair+Display&family=Raleway:wght@400;700&display=swap');
+
 html, body {
   height: 100%;
   margin: 0;
-  
-  font-family: 'Rockwell', Arial, sans-serif;
+
+  font-family: 'Raleway', sans-serif;
   color: #fcbf6b !important;
+  background-color: #2c2626 !important;
+}
+
+mat-sidenav-content {
+  background-color: #2c2626 !important; /* Fundo principal */
 }
 
 mat-card {
@@ -41,22 +49,24 @@ mat-card {
 mat-card-subtitle {
   color: #fcbf6b !important;
   text-align: center;
-  font-size: 10px;
+  font-size: 30px !important;
+  font-family: 'Playfair Display', serif !important;
 }
 
 mat-card-title {
   color: #fcbf6b !important;
   text-align: center;
-  font-size: 20px;
-  margin-bottom: 16px;
+  font-size: 40px !important;
+  font-family: 'Playfair Display', serif !important;
+  margin-bottom: 16px !important;
 }
 
 /* Formulários */
 form {
-  
   padding: 16px;
   border-radius: 8px;
   color: #3C3C3C;
+  font-family: 'Raleway', sans-serif !important;
 }
 
 /* Campos de formulário */
@@ -94,7 +104,7 @@ mat-form-field {
 
 /* Botões */
 button.mat-raised-button {
-  font-family: 'Rockwell', Arial, sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 16px;
   margin-right: 10px;
 }
@@ -114,8 +124,9 @@ button.mat-raised-button {
   color: white !important;
 }
 
-
-
-
-
-
+/* Para logo ou elementos decorativos opcionais */
+.logo-text {
+  font-family: 'Caveat', cursive;
+  font-size: 28px;
+  color: #fcbf6b;
+}

@@ -6,14 +6,16 @@
     display: flex;
     /*coloca no final da linha. sendo no lado direiro parte inferior*/
     justify-content: flex-end;
-    background-color: #fcbf6b;
+    background-color: #2c2626;
     
 }
+
+
 
 .footer > span{
     font-size: 30px;
     font-weight: 300;
-    color: #3C3C3C;
-    font-family: 'Rockwell', Arial, sans-serif;
-    background-color: #fcbf6b;
+    color: #dac16f;
+    font-family: 'Playfair Display', serif;
+    background-color: #2c2626;
 }

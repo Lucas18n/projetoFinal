@@ -1,10 +1,16 @@
 .header{
     display: flex;
     align-items: center;
-    background-color: #fcbf6b;
     padding-left: 2px;
     
+    
+    
 }
+
+::ng-deep .header {
+    background: linear-gradient(to right, #fcbf6b, #e2c416) !important;
+  }
+  
 
 .header a {
     display: flex;

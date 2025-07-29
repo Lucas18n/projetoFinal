@@ -1,34 +1,80 @@
 <mat-card>
-    <mat-card-title>Excluir Forma de Pagamento</mat-card-title>
-    
-    <form>
+  <mat-card-title>Excluir Forma de Pagamento</mat-card-title>
+
+  <form>
+    <div class="form-grid">
+
       <mat-form-field>
-        <input matInput placeholder="Descrição" [value]="formaPagamento.fpgDescricao" name="fpgDescricao" disabled>
+        <input
+          matInput
+          placeholder="Descrição"
+          [value]="formaPagamento.fpgDescricao"
+          name="fpgDescricao"
+          disabled
+        />
       </mat-form-field>
-  
+
       <mat-form-field>
-        <input matInput placeholder="Ativo" [value]="formaPagamento.ativo ? 'Sim' : 'Não'" name="ativo" disabled>
+        <input
+          matInput
+          placeholder="Ativo"
+          [value]="formaPagamento.ativo ? 'Ativo' : 'Inativo'"
+          name="ativo"
+          disabled
+        />
       </mat-form-field>
-  
+
       <mat-form-field>
-        <input matInput placeholder="Permite Parcelamento" [value]="formaPagamento.permiteParcelamento ? 'Sim' : 'Não'" name="permiteParcelamento" disabled>
+        <input
+          matInput
+          placeholder="Permite Parcelamento"
+          [value]="formaPagamento.permiteParcelamento ? 'Sim' : 'Não'"
+          name="permiteParcelamento"
+          disabled
+        />
       </mat-form-field>
-  
+
       <mat-form-field>
-        <input matInput placeholder="Parcelas Máximas" [value]="formaPagamento.numeroMaximoParcelas" name="numeroMaximoParcelas" disabled>
+        <input
+          matInput
+          placeholder="Parcelas Máximas"
+          [value]="formaPagamento.numeroMaximoParcelas"
+          name="numeroMaximoParcelas"
+          disabled
+        />
       </mat-form-field>
-  
+
       <mat-form-field>
-        <input matInput placeholder="Taxa Adicional (%)" [value]="formaPagamento.taxaAdicional" name="taxaAdicional" disabled>
+        <input
+          matInput
+          placeholder="Taxa Adicional (%)"
+          [value]="formaPagamento.taxaAdicional"
+          name="taxaAdicional"
+          disabled
+        />
       </mat-form-field>
-    </form>
-  
-    <button mat-raised-button (click)="deleteFormaPagamento()" color="warn">
+
+    </div>
+  </form>
+
+  <div class="actions">
+    <button
+      mat-raised-button
+      color="warn"
+      class="btn-excluir"
+      (click)="deleteFormaPagamento()"
+      type="button"
+    >
       Excluir
     </button>
-  
-    <button mat-raised-button (click)="cancel()">
-      Cancelar
+
+    <button
+      mat-raised-button
+      class="btn-cancelar"
+      (click)="cancel()"
+      type="button"
+    >
+      Voltar
     </button>
-  </mat-card>
-  
+  </div>
+</mat-card>

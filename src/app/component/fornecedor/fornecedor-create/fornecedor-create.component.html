@@ -90,8 +90,8 @@
           required
           #forAtivo="ngModel"
         >
-          <mat-option [value]="true">Sim</mat-option>
-          <mat-option [value]="false">Não</mat-option>
+          <mat-option [value]="true">Ativo</mat-option>
+          <mat-option [value]="false">Inativo</mat-option>
         </mat-select>
         <mat-error *ngIf="forAtivo.invalid && forAtivo.touched">
           Campo obrigatório

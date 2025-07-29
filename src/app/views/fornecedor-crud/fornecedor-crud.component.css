@@ -1,22 +1,24 @@
 button {
     margin-bottom: 30px;
-    font-family: 'Rockwell', Arial, sans-serif;
-    background-color: #4CAF50; /* Cor de fundo verde */
+    font-family: 'Raleway', Arial, sans-serif; /* Fonte mais moderna */
+    background-color: #28a745; /* Cor verde suave */
     color: white; /* Cor do texto branca */
-    padding: 15px 25px; /* Padding para aumentar o tamanho do botão */
+    padding: 15px 30px; /* Ajusta o padding para dar mais destaque */
     font-size: 16px; /* Tamanho da fonte */
     border: none; /* Remove borda */
-    border-radius: 10px; /* Bordas arredondadas */
+    border-radius: 25px; /* Bordas mais arredondadas */
     cursor: pointer; /* Aponta para o cursor de clicar */
-
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    transition: all 0.3s ease; /* Transição suave */
 }
 
 button:hover {
-    background-color: #388b3c; /* Cor de fundo ao passar o mouse */
-    
+    background-color: #218838; /* Cor de fundo mais escura no hover */
+    transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra mais forte ao passar o mouse */
 }
 
 button:active {
-    background-color: #388b3c; /* Cor de fundo quando pressionado */
-   
+    transform: scale(0.98); /* Efeito de clique */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra normal após o clique */
 }
