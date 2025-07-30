@@ -14,6 +14,7 @@ import { FormaPagamentoCreateComponent } from './component/formaPagamento/forma-
 import { FormaPagamentoDeleteComponent } from './component/formaPagamento/forma-pagamento-delete/forma-pagamento-delete.component';
 import { FormaPagamentoUpdateComponent } from './component/formaPagamento/forma-pagamento-update/forma-pagamento-update.component';
 import { ClienteUpdateComponent } from './component/cliente/cliente-update/cliente-update.component';
+import { ClienteDeleteComponent } from './component/cliente/cliente-delete/cliente-delete.component';
 
 const routes: Routes = [
 {
@@ -85,6 +86,11 @@ const routes: Routes = [
 {
   path: "cliente/update/:id",
   component: ClienteUpdateComponent
+},
+
+{
+  path: "cliente/delete/:id",
+  component: ClienteDeleteComponent
 },
 
 ///////////////////////////Cliente FIM
