@@ -53,6 +53,9 @@ import { NgChartsModule } from 'ng2-charts';
 
 // Importação correta do ngx-mask para versão 14.3.3
 import { NgxMaskModule } from 'ngx-mask';
+import { ClienteDeleteComponent } from './component/cliente/cliente-delete/cliente-delete.component';
+import { FornecedorUpdateComponent } from './component/fornecedor/fornecedor-update/fornecedor-update.component';
+import { FornecedorDeleteComponent } from './component/fornecedor/fornecedor-delete/fornecedor-delete.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +84,10 @@ import { NgxMaskModule } from 'ngx-mask';
     FormaPagamentoReadComponent,
     FormaPagamentoCreateComponent,
     FormaPagamentoUpdateComponent,
-    FormaPagamentoDeleteComponent
+    FormaPagamentoDeleteComponent,
+    ClienteDeleteComponent,
+    FornecedorUpdateComponent,
+    FornecedorDeleteComponent
   ],
   imports: [
     BrowserModule,

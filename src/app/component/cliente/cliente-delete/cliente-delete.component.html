@@ -1,0 +1,119 @@
+<mat-card>
+    <mat-card-title>Excluir Cliente</mat-card-title>
+  
+    <form>
+      <mat-card-title>Informações Pessoais</mat-card-title>
+      <div class="form-grid">
+  
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Nome"
+            [value]="cliente.cliNome"
+            name="cliNome"
+            disabled
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="CPF / CNPJ"
+            [value]="cliente.cliCpf"
+            name="cliCpf"
+            disabled
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Data de Nascimento"
+            [value]="cliente.dataNascimento | date:'dd/MM/yyyy'"
+            name="dataNascimento"
+            disabled
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Estado Civil</mat-label>
+          <mat-select [value]="cliente.cliEstCivil" name="cliEstCivil" disabled>
+            <mat-option *ngFor="let estado of cliEstCivil" [value]="estado">
+              {{ estado }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Profissão"
+            [value]="cliente.cliProfissao"
+            name="cliProfissao"
+            disabled
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Cliente Ativo?</mat-label>
+          <mat-select [value]="cliente.cliAtivo" name="cliAtivo" disabled>
+            <mat-option [value]="true">Ativo</mat-option>
+            <mat-option [value]="false">Inativo</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+  
+      <!-- Contato -->
+      <div class="form-grid">
+        <mat-form-field>
+          <input matInput placeholder="Celular" [value]="cliente.contato?.conCelular" name="conCelular" disabled />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Telefone Comercial" [value]="cliente.contato?.conTelefoneComercial" name="conTelefoneComercial" disabled />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="E-mail" [value]="cliente.contato?.conEmail" name="conEmail" disabled />
+        </mat-form-field>
+      </div>
+  
+      <!-- Endereço -->
+      <div class="form-grid">
+        <mat-form-field>
+          <input matInput placeholder="Rua" [value]="cliente.endereco?.endRua" name="endRua" disabled />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Número" [value]="cliente.endereco?.endNumero" name="endNumero" disabled />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Cidade" [value]="cliente.endereco?.endCidade" name="endCidade" disabled />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="CEP" [value]="cliente.endereco?.endCep" name="endCep" disabled />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Estado" [value]="cliente.endereco?.endEstado" name="endEstado" disabled />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="País" [value]="cliente.endereco?.endPais" name="endPais" disabled />
+        </mat-form-field>
+      </div>
+  
+      <div class="actions">
+        <button mat-raised-button color="warn" (click)="deleteCliente()" class="btn-excluir">
+          Excluir
+        </button>
+  
+        <button mat-raised-button (click)="cancel()" class="btn-cancelar">
+          Voltar
+        </button>
+      </div>
+    </form>
+  </mat-card>
+  

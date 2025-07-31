@@ -31,11 +31,12 @@ button {
 }
 
 .btn-cancelar {
-  background-color: #c5a7aa !important;
+  background-color: #c5a7aa !important
+   ;
   color: #000;
 
   &:hover {
-    background-color: #a18687;
+    background-color: #a18687 !important;
     transform: scale(1.05);
   }
 

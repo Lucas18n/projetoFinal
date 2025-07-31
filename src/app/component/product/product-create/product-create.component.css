@@ -33,17 +33,17 @@ button {
 }
 
 /* Estilo para o botão Cancelar */
-.btn-cancelar {
-  background-color: #dc3545; /* Vermelho */
-  color: white;
+.btn-cancelarr {
+  background-color: #dc3545 ; /* Vermelho */
+  color: rgb(255, 255, 255);
 }
 
-.btn-cancelar:hover {
-  background-color: #c82333; /* Cor mais escura no hover */
+.btn-cancelarr:hover {
+  background-color: #c82333 !important; /* Cor mais escura no hover */
   transform: scale(1.05); /* Efeito de aumento */
 }
 
-.btn-cancelar:active {
+.btn-cancelarr:active {
   transform: scale(0.98); /* Efeito de clique */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
 }
@@ -99,3 +99,4 @@ mat-form-field input {
 mat-form-field input:focus {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Aumenta a sombra no foco */
 }
+

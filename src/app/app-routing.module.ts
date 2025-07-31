@@ -7,6 +7,7 @@ import { ProductCreateComponent } from './component/product/product-create/produ
 import { ClienteCrudComponent } from './views/cliente-crud/cliente-crud.component';
 import { ClienteCreateComponent } from './component/cliente/cliente-create/cliente-create.component';
 import { FornecedorCreateComponent } from './component/fornecedor/fornecedor-create/fornecedor-create.component';
+import { FornecedorUpdateComponent } from './component/fornecedor/fornecedor-update/fornecedor-update.component';
 import { ProductUpdateComponent } from './component/product/product-update/product-update.component';
 import { ProductDeleteComponent } from './component/product/product-delete/product-delete.component';
 import { FormaPagamentoCrudComponent } from './views/forma-pagamento-crud/forma-pagamento-crud.component';
@@ -17,83 +18,84 @@ import { ClienteUpdateComponent } from './component/cliente/cliente-update/clien
 import { ClienteDeleteComponent } from './component/cliente/cliente-delete/cliente-delete.component';
 
 const routes: Routes = [
-{
-  path: "",
-  component: HomeComponent 
-},
-///////////////////////////products
-{
-  path: "products",
-  component: ProductCrudComponent
-},
-/*-----*/
-{
-  path: "products/create",
-  component: ProductCreateComponent
-},
-/*-----*/
-{
-  path: "products/update/:id",
-  component: ProductUpdateComponent
-},
-/*-----*/
-{
-  path: "products/delete/:id",
-  component: ProductDeleteComponent
-},
-///////////////////////////products FIM
+  {
+    path: "",
+    component: HomeComponent 
+  },
+  ///////////////////////////products
+  {
+    path: "products",
+    component: ProductCrudComponent
+  },
+  /*-----*/
+  {
+    path: "products/create",
+    component: ProductCreateComponent
+  },
+  /*-----*/
+  {
+    path: "products/update/:id",
+    component: ProductUpdateComponent
+  },
+  /*-----*/
+  {
+    path: "products/delete/:id",
+    component: ProductDeleteComponent
+  },
+  ///////////////////////////products FIM
 
-///////////////////////////formaPagamento
-{
-  path: "formaPagamento",
-  component: FormaPagamentoCrudComponent
-},
-{
-  path: "formaPagamento/create",
-  component: FormaPagamentoCreateComponent
-},
-{
-  path: "formaPagamento/delete/:id",
-  component: FormaPagamentoDeleteComponent
-},
-{
-  path: "formaPagamento/update/:id",
-  component: FormaPagamentoUpdateComponent
-},
-///////////////////////////formaPagamento FIM
+  ///////////////////////////formaPagamento
+  {
+    path: "formaPagamento",
+    component: FormaPagamentoCrudComponent
+  },
+  {
+    path: "formaPagamento/create",
+    component: FormaPagamentoCreateComponent
+  },
+  {
+    path: "formaPagamento/delete/:id",
+    component: FormaPagamentoDeleteComponent
+  },
+  {
+    path: "formaPagamento/update/:id",
+    component: FormaPagamentoUpdateComponent
+  },
+  ///////////////////////////formaPagamento FIM
 
-///////////////////////////fornecedores
-{
-  path: "fornecedores",
-  component: FornecedorCrudComponent
-},
-{
-  path: "fornecedor/create",
-  component: FornecedorCreateComponent
-},
-///////////////////////////fornecedores FIM
+  ///////////////////////////fornecedores
+  {
+    path: "fornecedores",
+    component: FornecedorCrudComponent
+  },
+  {
+    path: "fornecedores/create",
+    component: FornecedorCreateComponent
+  },
+  {
+    path: "fornecedores/update/:id",
+    component: FornecedorUpdateComponent
+  },
+  ///////////////////////////fornecedores FIM
 
-///////////////////////////Cliente
-{
-  path: "clientes",
-  component: ClienteCrudComponent
-},
-{
-  path: "cliente/create",
-  component: ClienteCreateComponent
-},
-
-{
-  path: "cliente/update/:id",
-  component: ClienteUpdateComponent
-},
-
-{
-  path: "cliente/delete/:id",
-  component: ClienteDeleteComponent
-},
-
-///////////////////////////Cliente FIM
+  ///////////////////////////Cliente
+  {
+    path: "clientes",
+    component: ClienteCrudComponent
+  },
+  {
+    path: "cliente/create",
+    component: ClienteCreateComponent
+  },
+  {
+    path: "cliente/update/:id",
+    component: ClienteUpdateComponent
+  },
+  {
+    path: "cliente/delete/:id",
+    component: ClienteDeleteComponent
+  }
+  ///////////////////////////Cliente FIM
 ];
 
 @NgModule({
