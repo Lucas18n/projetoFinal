@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Fornecedor } from '../fornecedor.model';
 import { FornecedorService } from '../fornecedor.service';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-fornecedor-update',
   templateUrl: './fornecedor-update.component.html',
   styleUrls: ['./fornecedor-update.component.css']
 })
-export class FornecedorUpdateComponent {
+export class FornecedorUpdateComponent implements OnInit {
 
   fornecedor!: Fornecedor;
 
@@ -21,7 +21,7 @@ export class FornecedorUpdateComponent {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.fornecedorService.readById(id!).subscribe((fornecedor: any) => {
-      // Montar os objetos aninhados de endereco e contato
+      // 🔧 Criar manualmente os objetos aninhados com base nos dados recebidos
       fornecedor.endereco = {
         endRua: fornecedor.endRua || '',
         endNumero: fornecedor.endNumero || '',
