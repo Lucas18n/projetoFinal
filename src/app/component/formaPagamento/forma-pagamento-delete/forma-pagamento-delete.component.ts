@@ -24,11 +24,15 @@ export class FormaPagamentoDeleteComponent {
   }
 
   deleteFormaPagamento(): void {
+    const confirmar = window.confirm('Tem certeza que deseja excluir este produto?');
+
+    if (confirmar) {
     this.formaPagamentoService.delete(this.formaPagamento.fpgId!).subscribe(() =>{
     this.formaPagamentoService.showMessage('Forma de Pagamento excluido com sucesso!')  
     this.router.navigate(['/formaPagamento'])
     })
   }
+}
 
   cancel(): void{
     this.router.navigate(['/formaPagamento'])

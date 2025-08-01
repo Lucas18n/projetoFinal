@@ -19,6 +19,14 @@ export class FormaPagamentoReadComponent {
   // Injeta o ProductService pra poder acessar os métodos dele
   constructor(private formaPagamentoService: FormaPagamentoService) { }
 
+  statusAtivo(value: any): string {
+    return value === true || value === 'true' ? 'Ativo' : 'Inativo';
+  }
+
+  permiteParcelamento(value: any): string {
+    return value === true || value === 'true' ? 'Permitido' : 'Não Permitido';
+  }
+
   // Método chamado quando o componente é iniciado
   ngOnInit(): void {
     // Chama o método 'read' do service, que busca os produtos

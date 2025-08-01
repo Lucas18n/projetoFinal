@@ -1,1 +1,173 @@
-<p>fornecedor-delete works!</p>
+<mat-card>
+    <mat-card-title>Excluir Fornecedor</mat-card-title>
+  
+    <form>
+      <mat-card-title>Informações do Fornecedor</mat-card-title>
+      <div class="form-grid">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Nome Fantasia"
+            [value]="fornecedor.forNomeFantasia"
+            name="forNomeFantasia"
+            disabled
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Razão Social"
+            [value]="fornecedor.forRazaoSocial"
+            name="forRazaoSocial"
+            disabled
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="CNPJ"
+            [value]="fornecedor.forCnpj"
+            name="forCnpj"
+            disabled
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Responsável"
+            [value]="fornecedor.forResponsavel"
+            name="forResponsavel"
+            disabled
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Tipo de Empresa"
+            [value]="fornecedor.forTipoEmpresa"
+            name="forTipoEmpresa"
+            disabled
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Fornecedor Ativo?</mat-label>
+          <mat-select [value]="fornecedor.forAtivo" disabled>
+            <mat-option [value]="true">Ativo</mat-option>
+            <mat-option [value]="false">Inativo</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+  
+      <mat-card-title>Contato</mat-card-title>
+      <div class="form-grid">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Celular"
+            [value]="fornecedor.conCelular"
+            name="conCelular"
+            disabled
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Telefone Comercial"
+            [value]="fornecedor.conTelefoneComercial"
+            name="conTelefoneComercial"
+            disabled
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Email"
+            [value]="fornecedor.conEmail"
+            name="conEmail"
+            disabled
+          />
+        </mat-form-field>
+      </div>
+  
+      <mat-card-title>Endereço</mat-card-title>
+      <div class="form-grid">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Rua"
+            [value]="fornecedor.endRua"
+            name="endRua"
+            disabled
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Número"
+            [value]="fornecedor.endNumero"
+            name="endNumero"
+            disabled
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Cidade"
+            [value]="fornecedor.endCidade"
+            name="endCidade"
+            disabled
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="CEP"
+            [value]="fornecedor.endCep"
+            name="endCep"
+            disabled
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Estado"
+            [value]="fornecedor.endEstado"
+            name="endEstado"
+            disabled
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="País"
+            [value]="fornecedor.endPais"
+            name="endPais"
+            disabled
+          />
+        </mat-form-field>
+      </div>
+  
+      <div class="actions">
+        <button mat-raised-button color="warn" (click)="deleteFornecedor()" class="btn-excluir">
+          Excluir
+        </button>
+  
+        <button mat-raised-button (click)="cancel()" class="btn-cancelar">
+          Voltar
+        </button>
+      </div>
+    </form>
+  </mat-card>
+  

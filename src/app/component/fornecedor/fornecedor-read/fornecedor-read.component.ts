@@ -12,6 +12,10 @@ export class FornecedorReadComponent {
     displayedColumns = ['forId', 'forNomeFantasia', 'forCnpj', 'forRazaoSocial', 'forTipoEmpresa', 'forAtivo', 'action']
   
     constructor(private fornecedorService: FornecedorService) { }
+
+    statusAtivo(value: any): string {
+      return value === true || value === 'true' ? 'Ativo' : 'Inativo';
+    }
   
     ngOnInit(): void {
       this.fornecedorService.read().subscribe(fornecedor => {

@@ -26,12 +26,19 @@ span
 }
   
 
-  .chart-container {
-    margin-top: 50px;
-    width: 400px;
-    text-align: center;
-    color: rgb(221, 216, 216);
-  }
+.charts-row {
+  display: flex;
+  gap: 100px; /* espaço entre os gráficos */
+  justify-content: center; /* centraliza horizontalmente */
+  flex-wrap: wrap; /* para ficar responsivo em telas pequenas */
+}
+
+.chart-container {
+  width: 500px; /* mesma largura para ambos */
+  text-align: center;
+  color: rgb(221, 216, 216);
+}
+
   
   .chart-header {
     font-size: 22px !important;

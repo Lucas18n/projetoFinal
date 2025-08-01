@@ -2,15 +2,25 @@
   <span>
     <mat-card-title class="title">Sistema De Gestão Interno</mat-card-title>
     <mat-card-subtitle class="subtitle">Da Padoka</mat-card-subtitle>
-    
   </span>
 
-  <div class="chart-container">
-    <div class="chart-header">Gráfico De Quantidade De Produtos</div>
+  <!-- Container flex para os dois gráficos lado a lado -->
+  <div class="charts-row">
+    <div class="chart-container">
+      <div class="chart-header">Gráfico De Quantidade De Produtos</div>
+      <canvas baseChart
+              [data]="pieChartData"
+              [type]="pieChartType">
+      </canvas>
+    </div>
 
-    <canvas baseChart
-            [data]="pieChartData"
-            [type]="pieChartType">
-    </canvas>
+    <div class="chart-container">
+      <div class="chart-header">Gráfico Financeiro (Saídas)</div>
+      <canvas baseChart
+              [data]="barChartData"
+              [type]="barChartType"
+              [options]="barChartOptions">
+      </canvas>
+    </div>
   </div>
 </mat-card>

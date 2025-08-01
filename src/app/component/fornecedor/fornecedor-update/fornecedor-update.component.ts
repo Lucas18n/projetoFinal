@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Fornecedor } from '../fornecedor.model';
 import { FornecedorService } from '../fornecedor.service';
 
 @Component({
@@ -10,7 +9,10 @@ import { FornecedorService } from '../fornecedor.service';
 })
 export class FornecedorUpdateComponent implements OnInit {
 
-  fornecedor!: Fornecedor;
+  fornecedor: any = {
+    endereco: {},
+    contato: {}
+  };
 
   constructor(
     private fornecedorService: FornecedorService,
@@ -21,26 +23,33 @@ export class FornecedorUpdateComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.fornecedorService.readById(id!).subscribe((fornecedor: any) => {
-      // 🔧 Criar manualmente os objetos aninhados com base nos dados recebidos
-      fornecedor.endereco = {
-        endRua: fornecedor.endRua || '',
-        endNumero: fornecedor.endNumero || '',
-        endCidade: fornecedor.endCidade || '',
-        endCep: fornecedor.endCep || '',
-        endEstado: fornecedor.endEstado || '',
-        endPais: fornecedor.endPais || ''
+      this.fornecedor = {
+        ...fornecedor,
+        endereco: {
+          endRua: fornecedor.endRua || '',
+          endNumero: fornecedor.endNumero || '',
+          endCidade: fornecedor.endCidade || '',
+          endCep: fornecedor.endCep || '',
+          endEstado: fornecedor.endEstado || '',
+          endPais: fornecedor.endPais || ''
+        },
+        contato: {
+          conCelular: fornecedor.conCelular || '',
+          conTelefoneComercial: fornecedor.conTelefoneComercial || '',
+          conEmail: fornecedor.conEmail || ''
+        }
       };
-      fornecedor.contato = {
-        conCelular: fornecedor.conCelular || '',
-        conTelefoneComercial: fornecedor.conTelefoneComercial || '',
-        conEmail: fornecedor.conEmail || ''
-      };
-      this.fornecedor = fornecedor;
     });
   }
 
   updateFornecedor(): void {
-    this.fornecedorService.update(this.fornecedor).subscribe(() => {
+    const payload = {
+      ...this.fornecedor,
+      ...this.fornecedor.endereco,
+      ...this.fornecedor.contato
+    };
+
+    this.fornecedorService.update(payload).subscribe(() => {
       this.fornecedorService.showMessage('Fornecedor atualizado com sucesso!');
       this.router.navigate(['/fornecedores']);
     });

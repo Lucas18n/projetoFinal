@@ -1,13 +1,13 @@
 form {
   display: flex;
   flex-direction: column;
-  margin-top: 20px; /* Adicionando espaço superior ao formulário */
+  margin-top: 20px; /* Espaço superior no formulário */
 }
 
 /* Estilos gerais para os botões */
 button {
   margin: 20px 15px 0px 0px;
-  font-family: 'Raleway', Arial, sans-serif; /* Fonte mais moderna */
+  font-family: 'Raleway', Arial, sans-serif; /* Alterando para uma fonte mais moderna */
   font-size: 16px; /* Ajuste o tamanho da fonte */
   border-radius: 25px; /* Bordas arredondadas para os botões */
   padding: 12px 25px; /* Ajustando o padding para maior interação */
@@ -35,12 +35,12 @@ button {
 
 /* Estilo para o botão Cancelar */
 .btn-cancelar {
-  background-color: #dc3545; /* Vermelho */
+  background-color: #dc3545 !important; /* Vermelho */
   color: white;
 }
 
 .btn-cancelar:hover {
-  background-color: #c82333; /* Cor mais escura no hover */
+  background-color: #c82333 !important; /* Cor mais escura no hover */
   transform: scale(1.05); /* Efeito de aumento */
 }
 
@@ -65,7 +65,7 @@ button {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra mais leve */
 }
 
-/* Estilo para a grade de formulários */
+/* Estilo para a grid de formulários */
 .form-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -79,16 +79,31 @@ button {
   }
 }
 
+/* Ajustando a largura dos campos do formulário */
 mat-form-field {
   width: 100%; /* Garante que os campos de formulário ocupem toda a largura disponível */
-  margin-bottom: 20px; /* Margem abaixo de cada campo */
+  margin-bottom: 20px; /* Espaço entre os campos */
 }
 
-/* Título do formulário */
+/* Título do mat-card */
+mat-card {
+  background-color: #3C3C3C;
+  border-radius: 12px; /* Bordas arredondadas para o card */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Adicionando sombra ao card */
+}
+
+/* Estilo para o título do card */
 mat-card-title {
   text-align: center;
   color: #fcbf6b; /* Cor amarela suave */
-  font-size: 24px; /* Tamanho do título ajustado */
-  font-family: 'Playfair Display', serif; /* Fonte mais elegante */
-  margin-bottom: 20px; /* Espaço abaixo do título */
+  font-size: 24px !important; /* Tamanho maior para o título */
+  font-family: 'Playfair Display', serif !important; /* Fonte mais elegante */
+  margin-bottom: 20px !important;  /* Espaço abaixo do título */
 }
+
+/* Alteração do ícone do calendário */
+::ng-deep mat-datepicker-toggle .mat-mdc-datepicker-toggle-default-icon {
+  color: #fcbf6b !important; /* Cor do ícone do calendário */
+}
+
+

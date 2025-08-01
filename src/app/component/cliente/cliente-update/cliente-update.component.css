@@ -1,6 +1,6 @@
-form{
-    display: flex;
-    flex-direction: column;
+form {
+  display: flex;
+  flex-direction: column;
 }
 
 button {
@@ -15,6 +15,23 @@ button {
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: none;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 16px;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+mat-form-field {
+  width: 95%;
 }
 
 /* Estilo para o botão Salvar */
@@ -42,24 +59,9 @@ button {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
 }
 
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin-bottom: 16px;
-  
-  @media (max-width: 768px) {
-    .form-grid {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
-  }
-  mat-form-field{
-      width: 95%;
-  }
-
-  mat-card-title {
-    text-align: center;
-    color: #fcbf6b;
-  }
-
-
+mat-card-title {
+  text-align: center;
+  color: #fcbf6b;
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+}

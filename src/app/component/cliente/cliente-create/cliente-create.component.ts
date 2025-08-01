@@ -40,7 +40,10 @@ export class ClienteCreateComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Salva a rota atual para restaurar depois ao voltar para a área clientes
+    localStorage.setItem('clientes-last-route', this.router.url);
+  }
 
   createCliente(form: NgForm): void {
     if (form.invalid) {

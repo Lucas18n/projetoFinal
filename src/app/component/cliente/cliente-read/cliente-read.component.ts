@@ -8,17 +8,19 @@ import { ClienteService } from '../cliente.service';
   styleUrls: ['./cliente-read.component.css']
 })
 export class ClienteReadComponent {
-  cliente!: Cliente[]
-    displayedColumns = ['cliId', 'cliNome', 'cliCpf', 'cliProfissao', 'cliAtivo', 'action']
-  
-    constructor(private clienteService: ClienteService) { }
-  
-    ngOnInit(): void {
-      this.clienteService.read().subscribe(cliente => {
-        this.cliente = cliente
-        console.log(cliente)  
-      })
-    }
+  cliente!: Cliente[];
+  displayedColumns = ['cliId', 'cliNome', 'cliCpf', 'cliProfissao', 'cliAtivo', 'action'];
 
-   
+  constructor(private clienteService: ClienteService) { }
+
+  statusAtivo(value: any): string {
+    return value === true || value === 'true' ? 'Ativo' : 'Inativo';
+  }
+
+  ngOnInit(): void {
+    this.clienteService.read().subscribe(cliente => {
+      this.cliente = cliente;
+      console.log(cliente);
+    });
+  }
 }

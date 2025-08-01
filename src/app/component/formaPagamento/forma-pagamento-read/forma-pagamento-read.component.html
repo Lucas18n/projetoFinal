@@ -17,13 +17,17 @@
     <!-- Coluna Ativo -->
     <ng-container matColumnDef="ativo">
       <th mat-header-cell *matHeaderCellDef>Status</th>
-      <td mat-cell *matCellDef="let row">{{ row.ativo }}</td>
+      <td mat-cell *matCellDef="let row">
+        {{ statusAtivo(row.ativo) }}
+      </td>
     </ng-container>
 
      <!-- Coluna Ativo -->
      <ng-container matColumnDef="permiteParcelamento">
       <th mat-header-cell *matHeaderCellDef>Permite Parcelamento</th>
-      <td mat-cell *matCellDef="let row">{{ row.permiteParcelamento }}</td>
+      <td mat-cell *matCellDef="let row">
+        {{ permiteParcelamento(row.permiteParcelamento) }}
+      </td>
     </ng-container>
 
 

@@ -1,91 +1,96 @@
-/* Garante altura total da tela e remove margens */
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden; /* impede a rolagem da página */
-    font-family: 'Raleway', sans-serif !important;
-  }
-  
-  /* Toolbar fixa com estilo gradiente */
-  .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 64px;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(to right, #fcbf6b, #000000);
-    color: white;
-    padding-left: 20px;
-    font-family: 'Raleway', sans-serif;
-    font-size: 24px;
-  }
-  
-  .logo {
-    height: 40px;
-    margin-right: 10px;
-  }
-  
-  .logo-title {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  /* Sidenav container ocupa tudo abaixo da toolbar */
-  .container {
-    position: fixed;
-    top: 64px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    font-family: 'Raleway', sans-serif !important;
-  }
-  
-  /* Sidenav personalizado */
-  .sidenav {
-    background-color: #fcbf6b;
-    color: white;
-    width: 240px;
-    font-family: 'Raleway', sans-serif !important;
-  }
-  
-  .sidenav a {
-    color: #ffffff;
-    font-weight: bold;
-    font-family: 'Rockwell', Arial, sans-serif;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-  }
-  
-  .sidenav i {
-    margin-right: 8px;
-    width: 20px;
-    text-align: center;
-    font-size: 18px;
-  }
-  
-  /* Ícone com espaçamento extra se necessário */
-  .icon-spacing {
-    margin-right: 1px;
-  }
-  
-  /* Conteúdo com rolagem independente */
-  .content {
-    height: 100%;
-    overflow: auto;
-    padding: 16px;
-    background-color: #ffffff;
-  }
-  
-  /* Estilo do texto dos itens */
-  span {
-    font-family: 'Raleway', sans-serif;
-    font-size: 17px;
-    font-weight: 1000;
-  }
-  
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* evita scroll da página */
+  font-family: 'Raleway', sans-serif !important;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to right, #fcbf6b, #000000);
+  color: white;
+  padding-left: 20px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 24px;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.container {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  height: calc(100% - 64px);
+  font-family: 'Raleway', sans-serif !important;
+}
+
+.sidenav {
+  background-color: #fcbf6b;
+  color: white;
+  width: 240px;
+  height: 100%;
+  font-family: 'Raleway', sans-serif !important;
+  overflow-y: auto;
+  /* Removi a sombra para evitar escurecer */
+  /* box-shadow: 2px 0 5px rgba(0,0,0,0.1); */
+}
+
+.sidenav a {
+  color: #ffffff;
+  font-weight: bold;
+  font-family: 'Rockwell', Arial, sans-serif;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.sidenav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sidenav i {
+  margin-right: 8px;
+  width: 20px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.icon-spacing {
+  margin-right: 1px;
+}
+
+.content {
+  flex-grow: 1;
+  height: 100%;
+  overflow-y: auto;
+  padding: 16px;
+  background-color: #ffffff;
+}
+
+span {
+  font-family: 'Raleway', sans-serif;
+  font-size: 17px;
+  font-weight: 1000;
+}

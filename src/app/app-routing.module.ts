@@ -7,6 +7,7 @@ import { ProductCreateComponent } from './component/product/product-create/produ
 import { ClienteCrudComponent } from './views/cliente-crud/cliente-crud.component';
 import { ClienteCreateComponent } from './component/cliente/cliente-create/cliente-create.component';
 import { FornecedorCreateComponent } from './component/fornecedor/fornecedor-create/fornecedor-create.component';
+import { FornecedorDeleteComponent } from './component/fornecedor/fornecedor-delete/fornecedor-delete.component';
 import { FornecedorUpdateComponent } from './component/fornecedor/fornecedor-update/fornecedor-update.component';
 import { ProductUpdateComponent } from './component/product/product-update/product-update.component';
 import { ProductDeleteComponent } from './component/product/product-delete/product-delete.component';
@@ -75,6 +76,10 @@ const routes: Routes = [
   {
     path: "fornecedores/update/:id",
     component: FornecedorUpdateComponent
+  },
+  {
+    path: "fornecedores/delete/:id",
+    component: FornecedorDeleteComponent
   },
   ///////////////////////////fornecedores FIM
 

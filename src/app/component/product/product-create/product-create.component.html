@@ -3,7 +3,7 @@
   <form #form="ngForm" (ngSubmit)="createProduct(form)">
     <div class="form-grid">
 
-      <mat-form-field>
+      <mat-form-field appearence="outline">
         <input
           matInput
           placeholder="Nome"
@@ -165,7 +165,7 @@
       Salvar
     </button>
 
-    <button mat-raised-button color="primary" (click)="cancel()" type="button" class="btn-cancelarr">
+    <button mat-raised-button color="primary" (click)="cancel()" type="button" class="btn-cancelar">
       Cancelar
     </button>
 

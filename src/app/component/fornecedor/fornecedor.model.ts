@@ -25,6 +25,7 @@ export interface Contato {
   }
 
   export interface FornecedorPayload {
+    forId?: number;
     forNomeFantasia: string;
     forCnpj: string;
     forRazaoSocial: string;

@@ -1,6 +1,6 @@
-form{
-    display: flex;
-    flex-direction: column;
+form {
+  display: flex;
+  flex-direction: column;
 }
 
 button {
@@ -17,6 +17,23 @@ button {
   border: none;
 }
 
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 16px;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+mat-form-field {
+  width: 95%;
+}
+
 /* Estilo para o botão Salvar */
 .btn-salvar {
   background-color: #28a745; /* Verde */
@@ -29,12 +46,12 @@ button {
 }
 
 .btn-cancelar {
-  background-color: #dc3545; /* Vermelho */
+  background-color: #dc3545 !important; /* Vermelho */
   color: white;
 }
 
 .btn-cancelar:hover {
-  background-color: #c82333; /* Cor mais escura no hover */
+  background-color: #c82333 !important; /* Cor mais escura no hover */
   transform: scale(1.05); /* Efeito de aumento */
 }
 .btn-cancelar:active {
@@ -42,24 +59,9 @@ button {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
 }
 
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin-bottom: 16px;
-  
-  @media (max-width: 768px) {
-    .form-grid {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
-  }
-  mat-form-field{
-      width: 95%;
-  }
-
-  mat-card-title {
-    text-align: center;
-    color: #fcbf6b;
-  }
-
-
+mat-card-title {
+  text-align: center;
+  color: #fcbf6b;
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+}

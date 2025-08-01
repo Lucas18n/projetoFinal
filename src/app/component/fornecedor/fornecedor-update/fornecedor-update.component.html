@@ -1,1 +1,87 @@
-<p>fornecedor-update works!</p>
+<mat-card *ngIf="fornecedor">
+    <mat-card-title>Alterar Fornecedor</mat-card-title>
+    <form>
+      <div class="form-grid">
+        <mat-form-field>
+          <input matInput placeholder="Nome Fantasia" [(ngModel)]="fornecedor.forNomeFantasia" name="forNomeFantasia" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="CNPJ" [(ngModel)]="fornecedor.forCnpj" name="forCnpj" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Razão Social" [(ngModel)]="fornecedor.forRazaoSocial" name="forRazaoSocial" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Responsável" [(ngModel)]="fornecedor.forResponsavel" name="forResponsavel" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Tipo de Empresa" [(ngModel)]="fornecedor.forTipoEmpresa" name="forTipoEmpresa" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Fornecedor Ativo?</mat-label>
+          <mat-select [(ngModel)]="fornecedor.forAtivo" name="forAtivo">
+            <mat-option [value]="true">Ativo</mat-option>
+            <mat-option [value]="false">Inativo</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+  
+      <!-- Endereço -->
+      <div class="form-grid">
+        <mat-form-field>
+          <input matInput placeholder="Rua" [(ngModel)]="fornecedor.endereco.endRua" name="endRua" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Número" [(ngModel)]="fornecedor.endereco.endNumero" name="endNumero" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Cidade" [(ngModel)]="fornecedor.endereco.endCidade" name="endCidade" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="CEP" [(ngModel)]="fornecedor.endereco.endCep" name="endCep" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Estado" [(ngModel)]="fornecedor.endereco.endEstado" name="endEstado" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="País" [(ngModel)]="fornecedor.endereco.endPais" name="endPais" />
+        </mat-form-field>
+      </div>
+  
+      <!-- Contato -->
+      <div class="form-grid">
+        <mat-form-field>
+          <input matInput placeholder="Celular" [(ngModel)]="fornecedor.contato.conCelular" name="conCelular" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Telefone Comercial" [(ngModel)]="fornecedor.contato.conTelefoneComercial" name="conTelefoneComercial" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Email" [(ngModel)]="fornecedor.contato.conEmail" name="conEmail" />
+        </mat-form-field>
+      </div>
+    </form>
+  
+    <div class="actions">
+      <button mat-raised-button (click)="updateFornecedor()" color="primary" class="btn-salvar">
+        Atualizar
+      </button>
+  
+      <button mat-raised-button (click)="cancel()" class="btn-cancelar">
+        Cancelar
+      </button>
+    </div>
+  </mat-card>
+  

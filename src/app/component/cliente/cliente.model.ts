@@ -23,6 +23,8 @@ export interface Contato {
     dataNascimento: string;
     endereco: Endereco;
     contato: Contato;
+
+    
   }
 
   export interface ClientePayload {
