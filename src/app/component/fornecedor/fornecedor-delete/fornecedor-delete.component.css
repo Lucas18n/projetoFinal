@@ -17,10 +17,10 @@ form {
   }
   
   .btn-excluir {
-    background-color: #ff0000;
+    background-color: #ff0000 !important;
   
     &:hover {
-      background-color: #cc0000;
+      background-color: #cc0000 !important;
       transform: scale(1.05);
     }
   
