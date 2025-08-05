@@ -16,6 +16,11 @@ export class ProductUpdateComponent {
     private router: Router,
     private route: ActivatedRoute) {}
 
+     // Categorias fixas para seleção
+  categorias: string[] = ['Frio', 'Salgado', 'Doce', 'Bebida'];
+
+  unidadesMedida: string[] = ['Kg', 'g', 'L', 'ml', 'Unidade'];
+
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
     this.productService.readById(id!).subscribe((product: Product) =>{

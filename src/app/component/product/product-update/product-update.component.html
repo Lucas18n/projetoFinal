@@ -20,7 +20,20 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Categoria" [(ngModel)]="product.categoria" name="categoria" />
+        <mat-label>Categoria</mat-label>
+        <mat-select
+          [(ngModel)]="product.categoria"
+          name="categoria"
+          required
+          #categoria="ngModel"
+        >
+          <mat-option *ngFor="let cat of categorias" [value]="cat">
+            {{ cat }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="categoria.invalid && categoria.touched">
+          Categoria é obrigatória
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>
@@ -32,7 +45,20 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Unidade de Medida" [(ngModel)]="product.unidadeMedida" name="unidadeMedida" />
+        <mat-label>Unidade de Medida</mat-label>
+        <mat-select
+          [(ngModel)]="product.unidadeMedida"
+          name="unidadeMedida"
+          required
+          #unidadeMedida="ngModel"
+        >
+          <mat-option *ngFor="let unidade of unidadesMedida" [value]="unidade">
+            {{ unidade }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="unidadeMedida.invalid && unidadeMedida.touched">
+          Unidade de Medida é obrigatória
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>
